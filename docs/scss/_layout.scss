@@ -1,0 +1,55 @@
+// _layout.scss
+
+@mixin templateGrid {
+  display: grid;
+
+  // Small screen
+  @media screen and (max-width: 1000px) {
+    grid-template-columns: auto;
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+    "header"
+    "nav"
+    "main";
+
+    .c-toggle {
+      top: 30vw;
+    }
+  }
+
+  // Normal screen
+  @media screen and (min-width: 1000px) {
+    grid-template-columns: 300px auto;
+    grid-template-rows: 100px 300px auto;
+    grid-template-areas:
+    "header main" 
+    "nav main"
+    "nav main";
+
+    footer {
+      display: none;
+    }
+  }
+}
+
+@mixin templateNav {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin headerGrid {
+  grid-area: header;
+}
+
+@mixin templateMain {
+  grid-template-columns: auto;
+  grid-template-rows: 20px auto;
+}
+
+@mixin navGrid {
+  grid-area: nav;
+}
+
+@mixin mainGrid {
+  grid-area: main;
+}

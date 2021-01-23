@@ -1,11 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="no">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DigiFab</title>
+  <!-- meta -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <!-- link -->
+  <link rel="stylesheet" media="screen" type="text/css" href="main.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+
+  <!-- script -->
+  <script src="./scripts/script.js"></script>
+  <script src="./scripts/jquery-1.10.2.js"></script>
+  <script>
+    $(function(){
+        $("nav").load("nav.html"); 
+    });
+  </script>
+
+  <title>DigiFab</title>
 </head>
 <body>
-    <h1>DigiFab</h1>
+  
+  <div class="c-toggle" id="theme">
+    <div class="c-toggle__body"><i class="c-toggle__icon" data-feather="moon"></i><i class="c-toggle__icon" data-feather="sun"></i></div>
+  </div>
+
+  <script src='./scripts/father.min.js'></script>
+  <script src="./scripts/script.js"></script>
+
+  <header>
+    <a href="index.html">
+      <h1>DigiFab prosjekt</h1>
+    </a>
+  </header>
+
+  <nav></nav>
+
+  <main>
+    <!--  ABOUT section  -->
+    <div>
+      <h2 id="about"> Om meg </h2>
+      <p id="aboutCollaps">[...]</p>
+      <section class="about">
+        <p>Jeg heter Tobias Hallingstad og studerer dataingeniør (4. semester) ved Høyskolen i Østfold. Jeg valgte ingeniør siden de hadde y-veien, som gjorde at jeg kunne begynne rett på studiene etter 2 år med jobb.</p>
+
+        <p>Jeg valgte å ta DigiFab faget siden jeg alltid har hat lyst til å fikle med små elektro ting på fritiden. Før jeg begynte har jeg startet på noen prosjekter som krever kunnskapene jeg kommer til å på DigiFab. Mitt hoved mål er å bygge noe som jeg i etterkant kan programmere til å gjøre noe, eksempel har jeg lyst til å lage et «smart» speil som jeg programmerer selve speilet selv.</p>
+
+        <p>Når det kommer til programmering er jeg glad i å gjøre mest mulig selv. Det betyr at jeg syns det er morsommere å programmere i C++ eller lignende språk. Hovedsaken til det er at jeg liker å vite hva programmene mine gjør. Det er også mye morsommere å prøve å finne en egen løsning på et problem en å kopiere noen andre sin løsning.</p>
+      </section>
+    </div>
+
+<!-- Template 
+    <div>
+      <h2 id="task#"> Task_header </h2>
+      <p id="task#Collaps">[...]</p>
+      <section class="task#">
+        
+      </section>
+    </div>
+-->
+    <div>
+      <h2 id="task1"> Design for fabrikasjon </h2>
+      <p id="task1Collaps">[...]</p>
+      <section class="task1">
+        <p>
+          Mer info kommer...
+        </p>
+      </section>
+    </div>
+
+
+    <div>
+      <h2 id="exam"> Eksamensprosjekt </h2>
+      <p id="examCollaps">[...]</p>
+      <section class="exam">
+        <p>
+          Mer info kommer ...
+        </p>
+      </section>
+    </div>
+  </main>
+  
 </body>
 </html>

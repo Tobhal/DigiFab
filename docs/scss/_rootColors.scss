@@ -1,0 +1,59 @@
+// _rootColors.scss
+
+@mixin rootColors {
+  :root {
+    // dark
+    --darkPrimaryColor: #121212;
+    --dark-00dp: rgba(255,255,255, 0.00);
+    --dark-01dp: rgba(255,255,255, 0.05);
+    --dark-02dp: rgba(255,255,255, 0.07);
+    --dark-03dp: rgba(255,255,255, 0.08);
+    --dark-04dp: rgba(255,255,255, 0.09);
+    --dark-06dp: rgba(255,255,255, 0.11);
+    --dark-08dp: rgba(255,255,255, 0.12);
+    --dark-12dp: rgba(255,255,255, 0.14);
+    --dark-16dp: rgba(255,255,255, 0.15);
+    --dark-24dp: rgba(255,255,255, 0.16);
+  
+    --system-base-9: rgba(18, 18, 18, 1);
+    --system-base-8: rgba(44, 44, 46, 1);
+    --system-base-7: rgba(58, 58, 60, 1);
+    --system-base-6: rgba(72, 72, 74, 1);
+    --system-base-5: rgba(99, 99, 102, 1);
+    --system-base-4: rgba(142, 142, 147, 1);
+    --system-base-3: rgba(174, 174, 178, 1);
+    --system-base-2: rgba(199, 199, 204, 1);
+    --system-base-1: rgba(209, 209, 214, 1);
+    --system-base-50: rgba(229, 229, 234, 1);
+    --system-base-0: rgba(242, 242, 247, 1);
+    
+    --secondary: var(--system-base-4);
+    --root-bg: var(--system-base-50);
+    --root-color: var(--system-base-7);
+    --header-color: var(--system-base-9);
+    --component-border: var(--system-base-2);
+    --component-bg-hover: var(--system-base-1);
+    --link-color: var(--system-base-7);
+    --title-color: var(--system-base-7);
+  
+    --cCodeBackground: #f4f4f4;
+    --cCodeBorder: #ddd;
+    --cCodeBorderLeft: #f36d33;
+    --cCodeBorderLeftHover: #338df3;
+    --cCodeColor: #000;
+    --cCodeButton: #000;
+  }
+  
+  :root.theme--dark {
+    --root-bg: var(--system-base-9);
+    --root-color: var(--system-base-1);
+    --header-color: var(--system-base-1);
+    --component-border: var(--system-base-2);
+    --component-bg-hover: var(--system-base-8);
+    --link-color: var(--system-base-50);
+    --title-color: var(--system-base-4);
+  }
+}
+
+// TODO: clean up
+// TODO: add darkmdode for code thing
