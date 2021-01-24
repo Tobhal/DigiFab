@@ -41,21 +41,19 @@ body {
   }
 
   nav {
-    span {
-      @include navGrid;
-      @include templateNav;
-    
-      margin: 1rem;
-    
-    
-      a {
-        background: var(--dark-01dp);
-        border-radius: 2px;
-    
-        color: var(--link-color);
-    
-        text-decoration: none;
-      }
+    @include navGrid;
+    @include templateNav;
+  
+    margin: 1rem;
+  
+  
+    a {
+      background: var(--dark-01dp);
+      border-radius: 2px;
+  
+      color: var(--link-color);
+  
+      text-decoration: none;
     }
   }
 

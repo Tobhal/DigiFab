@@ -169,36 +169,36 @@ body header {
   grid-area: header;
   text-align: center;
 }
-body nav span {
+body nav {
   grid-area: nav;
   margin: 1rem;
 }
 @media screen and (max-width: 1200px) {
-  body nav span {
+  body nav {
     display: flex;
     flex-direction: column;
   }
-  body nav span a {
+  body nav a {
     padding: 0.25rem 0.25rem 0.25rem 0.5rem;
     margin: 0.5rem 0 0.25rem 0;
   }
 }
 @media screen and (min-width: 1200px) {
-  body nav span {
+  body nav {
     display: flex;
     flex-direction: row;
     margin-left: auto;
     margin-right: auto;
   }
-  body nav span h2 {
+  body nav h2 {
     display: none;
   }
-  body nav span a {
+  body nav a {
     padding: 0.75rem 1rem;
     margin: 0.5rem 0.5rem;
   }
 }
-body nav span a {
+body nav a {
   background: var(--dark-01dp);
   border-radius: 2px;
   color: var(--link-color);
@@ -215,7 +215,7 @@ body main {
     -ms-grid-row: 1;
     -ms-grid-column: 1;
   }
-  body nav span {
+  body nav {
     -ms-grid-row: 2;
     -ms-grid-column: 1;
   }
@@ -229,7 +229,7 @@ body main {
     -ms-grid-row: 1;
     -ms-grid-column: 1;
   }
-  body nav span {
+  body nav {
     -ms-grid-row: 2;
     -ms-grid-column: 1;
   }
@@ -244,7 +244,7 @@ body main {
     -ms-grid-row: 1;
     -ms-grid-column: 2;
   }
-  body nav span {
+  body nav {
     -ms-grid-row: 2;
     -ms-grid-column: 1;
     -ms-grid-column-span: 3;
