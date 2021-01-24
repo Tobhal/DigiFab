@@ -1,18 +1,18 @@
 window.onload = startup;
 
-let hideDataThing = [
+hideDataThing = [
   "about",
   "exam",
   "task1",
   "task2",
-//  "tast3",
-//  "tast4",
-//  "tast5",
-//  "tast6",
-//  "tast7",
-//  "tast8",
-//  "tast9",
-//  "tast10"
+  "task3",
+  "task4",
+  "task5",
+  "task6",
+  "task7",
+  "task8",
+  "task9",
+  "task10"
 ];
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -55,7 +55,7 @@ function startup() {
   
   document.body.classList.add('notransition');
   
-  // Setts upp the ability to hide a header
+  // Setts up the ability to hide a header
   document.addEventListener("click", (event) => {
     for (el of hideDataThing) {
       if (event.target.matches("#" + el)) {
@@ -64,10 +64,12 @@ function startup() {
     }
   });
 
-  document.getElementById("themeButton").addEventListener("click", () => {
+  document.getElementById('theme').addEventListener('click', () => {
     darkmode();
   });
 
+  feather.replace();
+  
   let element = document.getElementsByClassName("date")
   for (let i = 0; i < element.length; i++) {
     element[i].addEventListener("click", () => {
@@ -85,7 +87,7 @@ function startup() {
 
 };
 
-feather.replace();
+
 
 function hideData(data) {
 
@@ -132,6 +134,7 @@ function darkmode(darkmode) {   // Change the site to dark mode or not. you can 
     document.getElementById('theme').classList.toggle('c-toggle--active');
   };
 };
+
 
 /* Code thing */
 function codeView () {

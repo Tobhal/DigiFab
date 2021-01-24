@@ -73,14 +73,21 @@ body {
     top: 30vw;
   }
 }
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 1000px) and (max-width: 1200px) {
   body {
     grid-template-columns: 300px auto;
-    grid-template-rows: 100px 300px auto;
-    grid-template-areas: "header main" "nav main" "nav main";
+    grid-template-rows: 100px auto;
+    grid-template-areas: "header main" "nav main";
   }
   body footer {
     display: none;
+  }
+}
+@media screen and (min-width: 1200px) {
+  body {
+    grid-template-columns: auto 800px auto;
+    grid-template-rows: 80px auto auto;
+    grid-template-areas: ". header ." "nav nav nav" ". main .";
   }
 }
 body pre {
@@ -159,21 +166,43 @@ body p {
   max-width: 700px;
 }
 body header {
+  grid-area: header;
   text-align: center;
 }
-body nav {
+body nav span {
   grid-area: nav;
-  display: flex;
-  flex-direction: column;
   margin: 1rem;
 }
-body nav a {
+@media screen and (max-width: 1200px) {
+  body nav span {
+    display: flex;
+    flex-direction: column;
+  }
+  body nav span a {
+    padding: 0.25rem 0.25rem 0.25rem 0.5rem;
+    margin: 0.5rem 0 0.25rem 0;
+  }
+}
+@media screen and (min-width: 1200px) {
+  body nav span {
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  body nav span h2 {
+    display: none;
+  }
+  body nav span a {
+    padding: 0.75rem 1rem;
+    margin: 0.5rem 0.5rem;
+  }
+}
+body nav span a {
   background: var(--dark-01dp);
   border-radius: 2px;
   color: var(--link-color);
   text-decoration: none;
-  padding: 0.25rem 0.25rem 0.25rem 0.5rem;
-  margin: 0.5rem 0 0.25rem 0;
 }
 body main {
   grid-area: main;
@@ -182,7 +211,11 @@ body main {
   font-size: 1em;
 }
 @media screen and (max-width: 1000px) {
-  body nav {
+  body header {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+  }
+  body nav span {
     -ms-grid-row: 2;
     -ms-grid-column: 1;
   }
@@ -191,15 +224,34 @@ body main {
     -ms-grid-column: 1;
   }
 }
-@media screen and (min-width: 1000px) {
-  body nav {
+@media screen and (min-width: 1000px) and (max-width: 1200px) {
+  body header {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+  }
+  body nav span {
     -ms-grid-row: 2;
-    -ms-grid-row-span: 2;
     -ms-grid-column: 1;
   }
   body main {
     -ms-grid-row: 1;
-    -ms-grid-row-span: 3;
+    -ms-grid-row-span: 2;
+    -ms-grid-column: 2;
+  }
+}
+@media screen and (min-width: 1200px) {
+  body header {
+    -ms-grid-row: 1;
+    -ms-grid-column: 2;
+  }
+  body nav span {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 3;
+  }
+  body main {
+    -ms-grid-row: 3;
+    -ms-grid-row-span: 1;
     -ms-grid-column: 2;
   }
 }

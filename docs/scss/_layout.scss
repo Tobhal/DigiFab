@@ -18,32 +18,66 @@
   }
 
   // Normal screen
-  @media screen and (min-width: 1000px) {
+  @media screen and (min-width: 1000px) and (max-width: 1200px) {
     grid-template-columns: 300px auto;
-    grid-template-rows: 100px 300px auto;
+    grid-template-rows: 100px auto;
     grid-template-areas:
     "header main" 
-    "nav main"
     "nav main";
 
     footer {
       display: none;
     }
   }
+
+  @media screen and (min-width: 1200px) {
+    grid-template-columns: auto 800px auto ;
+    grid-template-rows: 80px auto auto;
+    grid-template-areas: 
+    ". header ."
+    "nav nav nav"
+    ". main ."
+    ;
+  }
 }
 
 @mixin templateNav {
-  display: flex;
-  flex-direction: column;
-}
+  @media screen and (max-width: 1200px) {
+    display: flex;
+    flex-direction: column; 
 
-@mixin headerGrid {
-  grid-area: header;
+    a {
+      padding: 0.25rem 0.25rem 0.25rem 0.50rem;
+      margin: 0.50rem 0 0.25rem 0;
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    display: flex;
+    flex-direction: row;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    h2 {
+      display: none;
+    }
+
+    a {
+      padding: 0.75rem 1rem;
+      margin: 0.50rem 0.5rem;
+    }
+    
+  }
 }
 
 @mixin templateMain {
   grid-template-columns: auto;
   grid-template-rows: 20px auto;
+}
+
+@mixin headerGrid {
+  grid-area: header;
 }
 
 @mixin navGrid {

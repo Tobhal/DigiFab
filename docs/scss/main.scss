@@ -2,6 +2,7 @@
 @import 'rootColors';
 @import 'layout';
 @import 'code';
+@import 'colorToggle';
 
 @include rootColors;
 
@@ -34,26 +35,27 @@ body {
   }
 
   header {
+    @include headerGrid;
+    
     text-align: center;
   }
 
   nav {
-    @include navGrid;
-    @include templateNav;
-  
-    margin: 1rem;
-  
-  
-    a {
-      background: var(--dark-01dp);
-      border-radius: 2px;
-  
-      color: var(--link-color);
-  
-      text-decoration: none;
-  
-      padding: 0.25rem 0.25rem 0.25rem 0.50rem;
-      margin: 0.50rem 0 0.25rem 0;
+    span {
+      @include navGrid;
+      @include templateNav;
+    
+      margin: 1rem;
+    
+    
+      a {
+        background: var(--dark-01dp);
+        border-radius: 2px;
+    
+        color: var(--link-color);
+    
+        text-decoration: none;
+      }
     }
   }
 
@@ -89,52 +91,50 @@ body {
   }
 }
 
-// Color toggle setting
 .c-toggle {
-  width: 4rem;
-  height: 4rem;
-  overflow: hidden;
-  display: inline-block;
-  background: red;
-  position: absolute;
-  top: 1.6rem;
-  right: 1.6rem;
-  border-radius: 0.4rem;
-  cursor: pointer;
-  color: var(--component-bg-hover);
-  background: var(--header-color);
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2), 0px 5px 12px rgba(0, 0, 0, 0.1);
-}
-.c-toggle__body {
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-          flex-direction: column;
-  -webkit-box-align: center;
-          align-items: center;
-  width: 100%;
-  padding-top: 0.4rem;
-  padding-bottom: 0.4rem;
-  position: absolute;
-  top: 0;
-  -webkit-transition: all 320ms ease-out 100ms;
-  transition: all 320ms ease-out 100ms;
-}
-.c-toggle__icon {
-  display: block;
-  width: 3.2rem;
-  margin: 0.4rem;
-}
-.c-toggle--active .c-toggle__body {
-  top: -3.2rem;
-}
-
-.notransition {
-  -webkit-transition: none !important;
-  -moz-transition: none !important;
-  -o-transition: none !important;
-  transition: none !important;
-}
+  width:4rem;
+  height:4rem;
+  overflow:hidden;
+  display:inline-block;
+  background:red;
+  position:absolute;
+  top:1.6rem;
+  right:1.6rem;
+  border-radius:0.4rem;
+  cursor:pointer;
+  color:var(--component-bg-hover);
+  background:var(--header-color);
+  box-shadow:0px 2px 2px rgba(0,0,0,0.2),0px 5px 12px rgba(0,0,0,0.1)
+ }
+ .c-toggle__body {
+  display:-webkit-box;
+  display:flex;
+  -webkit-box-orient:vertical;
+  -webkit-box-direction:normal;
+  flex-direction:column;
+  -webkit-box-align:center;
+  align-items:center;
+  width:100%;
+  padding-top:0.4rem;
+  padding-bottom:0.4rem;
+  position:absolute;
+  top:0;
+  -webkit-transition:all 320ms ease-out 100ms;
+  transition:all 320ms ease-out 100ms
+ }
+ .c-toggle__icon {
+  display:block;
+  width:3.2rem;
+  margin:0.4rem
+ }
+ .c-toggle--active .c-toggle__body {
+  top:-3.2rem
+ }
+ .notransition {
+  -webkit-transition:none !important;
+  -moz-transition:none !important;
+  -o-transition:none !important;
+  transition:none !important
+ }
 
 
