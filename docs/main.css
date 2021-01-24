@@ -1,15 +1,4 @@
 :root {
-  --darkPrimaryColor: #121212;
-  --dark-00dp: rgba(255,255,255, 0.00);
-  --dark-01dp: rgba(255,255,255, 0.05);
-  --dark-02dp: rgba(255,255,255, 0.07);
-  --dark-03dp: rgba(255,255,255, 0.08);
-  --dark-04dp: rgba(255,255,255, 0.09);
-  --dark-06dp: rgba(255,255,255, 0.11);
-  --dark-08dp: rgba(255,255,255, 0.12);
-  --dark-12dp: rgba(255,255,255, 0.14);
-  --dark-16dp: rgba(255,255,255, 0.15);
-  --dark-24dp: rgba(255,255,255, 0.16);
   --system-base-9: rgba(18, 18, 18, 1);
   --system-base-8: rgba(44, 44, 46, 1);
   --system-base-7: rgba(58, 58, 60, 1);
@@ -21,30 +10,26 @@
   --system-base-1: rgba(209, 209, 214, 1);
   --system-base-50: rgba(229, 229, 234, 1);
   --system-base-0: rgba(242, 242, 247, 1);
-  --secondary: var(--system-base-4);
-  --root-bg: var(--system-base-50);
-  --root-color: var(--system-base-7);
   --header-color: var(--system-base-9);
+  --body-bg: var(--system-base-50);
+  --body-color: var(--system-base-8);
+  --secondary: var(--system-base-2);
+  --secondary-hover: var(--system-base-3);
+  --link-color: var(--system-base-8);
   --component-border: var(--system-base-2);
   --component-bg-hover: var(--system-base-1);
-  --link-color: var(--system-base-7);
-  --title-color: var(--system-base-7);
-  --cCodeBackground: #f4f4f4;
-  --cCodeBorder: #ddd;
-  --cCodeBorderLeft: #f36d33;
-  --cCodeBorderLeftHover: #338df3;
-  --cCodeColor: #000;
-  --cCodeButton: #000;
+  --code-bg: var(--system-base-8);
 }
 
-:root.theme--dark {
-  --root-bg: var(--system-base-9);
-  --root-color: var(--system-base-1);
+:root.theme--light {
   --header-color: var(--system-base-1);
+  --body-bg: var(--system-base-9);
+  --body-color: var(--system-base-1);
+  --secondary: var(--system-base-8);
+  --secondary-hover: var(--system-base-6);
+  --link-color: var(--system-base-50);
   --component-border: var(--system-base-2);
   --component-bg-hover: var(--system-base-8);
-  --link-color: var(--system-base-50);
-  --title-color: var(--system-base-4);
 }
 
 html {
@@ -54,12 +39,11 @@ html {
 
 body {
   display: grid;
-  /* Code */
   font-family: "Roboto", sans-serif;
   line-height: 1.6;
   font-size: 1.6rem;
-  background: var(--root-bg);
-  color: var(--root-color);
+  background: var(--body-bg);
+  color: var(--body-color);
   margin: 0 50px 0 0;
   transition: background-color 0s linear;
 }
@@ -91,73 +75,11 @@ body {
   }
 }
 body pre {
-  white-space: nowrap;
-  display: block;
-}
-body code {
-  clear: both;
-  text-align: left;
-  background: var(--cCodeBackground);
-  border: 1px solid var(--cCodeBorder);
-  border-left: 3px solid var(--cCodeBorderLeft);
-  color: var(--cCodeColor);
-  page-break-inside: avoid;
-  font: normal normal 14px/16px "Courier New", Courier, Monospace;
-  line-height: 1;
-  margin: 0 0 1.6em 30px;
-  max-width: 100%;
-  padding: 0.5em 1em;
-  display: block;
-  word-wrap: break-word;
-  overflow: auto;
-  overflow-x: auto;
+  background: var(--code-bg);
+  border-radius: 5px;
+  padding: 0 1rem;
+  max-width: 700px;
   white-space: pre-wrap;
-  counter-reset: line;
-}
-body code:hover, body code:focus {
-  border-left: 3px solid var(--cCodeBorderLeftHover);
-}
-body div.code {
-  position: relative;
-  margin-right: 70px;
-  /*max-width: 600px;*/
-}
-body pre + button {
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-body pre .line-number {
-  float: left;
-  margin: 0 1em 0 -1em;
-  text-align: right;
-}
-body pre .line-number span {
-  display: block;
-  padding: 0 0.5em 0 1em;
-}
-body pre .cl {
-  display: block;
-  clear: both;
-}
-body .codeButton {
-  background-color: transparent;
-  border-radius: 2px;
-  border: 1px solid;
-  display: inline-block;
-  cursor: pointer;
-  color: var(--cCodeButton);
-  font-family: Arial;
-  font-size: 14px;
-  padding: 2px 2px;
-  text-decoration: none;
-  margin: 2px 2px;
-}
-body .codeButton:hover {
-  background-color: transparent;
-}
-body .codeButton:active {
-  top: 1px;
 }
 body a {
   color: var(--link-color);
@@ -168,6 +90,7 @@ body p {
 body header {
   grid-area: header;
   text-align: center;
+  color: var(--header-color);
 }
 body nav {
   grid-area: nav;
@@ -199,10 +122,13 @@ body nav {
   }
 }
 body nav a {
-  background: var(--dark-01dp);
+  background: var(--secondary);
   border-radius: 2px;
   color: var(--link-color);
   text-decoration: none;
+}
+body nav a:hover {
+  background-color: var(--secondary-hover);
 }
 body main {
   grid-area: main;

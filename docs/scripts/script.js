@@ -18,8 +18,6 @@ hideDataThing = [
 window.addEventListener('DOMContentLoaded', () => {
   const userPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-  //console.log(userPrefersDark ? "dark mode thing":"light mode");
-
   if (localStorage.getItem("dark") == null) {
     localStorage.setItem("dark", "false");
   } else if (localStorage.getItem("dark") == "true") {
@@ -30,17 +28,10 @@ window.addEventListener('DOMContentLoaded', () => {
     localStorage.setItem("dark", "true")
   }
 
-
   // Hide the [...] on load
   for (element of hideDataThing) {
     document.getElementById(element + "Collaps").style.display = "none";
   }
-
-  (function () {
-    changeCodeFontSize(0)
-    codeView()
-    }
-  )()
 
 
 });
@@ -49,7 +40,7 @@ function startup() {
 
   if (localStorage.getItem("dark") == "true") {
     localStorage.setItem("dark", "true");
-    document.documentElement.classList.toggle('theme--dark');
+    document.documentElement.classList.toggle('theme--light');
     document.getElementById('theme').classList.toggle('c-toggle--active');
   }
   
@@ -87,8 +78,6 @@ function startup() {
 
 };
 
-
-
 function hideData(data) {
 
   let element = document.getElementsByClassName(data)[0];
@@ -120,40 +109,17 @@ function hideCourseElement(element, index) {
 function darkmode(darkmode) {   // Change the site to dark mode or not. you can define a true (dark mode) of false (white mode), if not the it will just change color.
   if (darkmode == null) {   // checks if there is a defined true/false. If not then flip the color.
     localStorage.getItem("dark") == "true" ? localStorage.setItem("dark", "false") : localStorage.setItem("dark", "true");
-    document.documentElement.classList.toggle('theme--dark');
+    document.documentElement.classList.toggle('theme--light');
     document.getElementById('theme').classList.toggle('c-toggle--active');
 
   } else if (darkmode == true && localStorage.getItem("dark") == "false") {
     localStorage.setItem("dark", "true");
-    document.documentElement.classList.toggle('theme--dark');
+    document.documentElement.classList.toggle('theme--light');
     document.getElementById('theme').classList.toggle('c-toggle--active');
 
   } else if (darkmode == false && localStorage.getItem("dark") == "true") {
     localStorage.setItem("dark", "false");
-    document.documentElement.classList.toggle('theme--dark');
+    document.documentElement.classList.toggle('theme--light');
     document.getElementById('theme').classList.toggle('c-toggle--active');
   };
 };
-
-
-/* Code thing */
-function codeView () {
-  var pre = document.getElementsByTagName('code')
-  for (var i = 0; i < pre.length; i++) {
-      pre[i].innerHTML = '<span class="line-number"></span>' + pre[i].innerHTML + '<span class="cl"></span>'
-      var num = pre[i].innerHTML.split(/\n/).length
-      for (var j = 0; j < num; j++) {
-          var lineNum = pre[i].getElementsByTagName('span')[0]
-          lineNum.innerHTML += '<span>' + (j + 1) + '</span>'
-      }
-  }
-}
-
-function changeCodeFontSize (size) {
-  if (size == 0) { return }
-  var elements = document.getElementsByTagName('code')
-  for (var i = 0; i < elements.length; i++) {
-      elements[i].style['font-size'] = size + 'px'
-  }
-}
-/* Code end */
