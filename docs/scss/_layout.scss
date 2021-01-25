@@ -18,7 +18,7 @@
   }
 
   // Normal screen
-  @media screen and (min-width: 1000px) and (max-width: 1200px) {
+  @media screen and (min-width: 1000px) and (max-width: 2000px) and (min-aspect-ratio: 16/10){
     grid-template-columns: 300px auto;
     grid-template-rows: 100px auto;
     grid-template-areas:
@@ -30,7 +30,8 @@
     }
   }
 
-  @media screen and (min-width: 1200px) {
+  // Large screen
+  @media screen and (min-width: 2000px) and (min-aspect-ratio: 16/9) {
     grid-template-columns: auto 800px auto ;
     grid-template-rows: 80px auto auto;
     grid-template-areas: 
@@ -38,11 +39,15 @@
     "nav nav nav"
     ". main ."
     ;
+
+    footer {
+      display: none;
+    }
   }
 }
 
 @mixin templateNav {
-  @media screen and (max-width: 1200px) {
+  @media screen and (max-width: 2000px) {
     display: flex;
     flex-direction: column; 
 
@@ -52,7 +57,7 @@
     }
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 2000px) {
     display: flex;
     flex-direction: row;
 
