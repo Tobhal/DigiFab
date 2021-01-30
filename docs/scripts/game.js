@@ -9,6 +9,35 @@ var rAF = window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame 
 
 let loaf = new Loaf()
 
+let key = {
+    "a": false,
+    "A": false,
+    "s": false,
+    "S": false,
+    "d": false,
+    "D": false,
+    "w": false,
+    "W": false
+}
+
+window.addEventListener("keydown", e => {
+    key[e.key] = true
+    Object.keys(key).forEach(keyP => {
+        if (key[keyP]) {
+            loaf.move(keyP, "keyboard", "key")
+        }
+    })
+})
+
+window.addEventListener("keyup", e => {
+    key[e.key] = false
+})
+
+/*
+window.addEventListener("keydown", e => {
+    loaf.move(e.key, "keyboard", "key")
+})
+*/
 function connecthandler(e) {
     addgamepad(e.gamepad);
 }
@@ -40,13 +69,14 @@ function updateStatus() {
     let i
     for (i in controllers) {
         let controllerType = controllers[i].id;
+        let controller = controllers[i]
 
-        // TODO: Make the indexes of the pressed buttons / axis be stored here, so I can detect multiple button presses and axis movement
+        // TODO: Make the indexes of the pressed buttons / axis be stored here, so I can detect multiple button presses and axis movement. Mabye
         let buttonsPressed = []
         let axisMoved = []
 
-        for (let j = 0; j < controllers[i].buttons.length; j++) {            
-            let button = controllers[i].buttons[j];
+        for (let j = 0; j < controller.buttons.length; j++) {            
+            let button = controller.buttons[j];
             let pressed = button.pressed;
             let touched = button.touched;
             let value = button.value;
@@ -56,9 +86,10 @@ function updateStatus() {
             }
         }
 
-
-        for (let j = 0; j < controllers[i].axes.length; j++) {
-            
+        for (let j = 0; j < controller.axes.length; j++) {
+            if (controller.axes[j] >= 0.1 || controller.axes[j] <= -0.1) {
+                loaf.move(controller.axes[j], controllerType, "stick", j)
+            }
 
         }
     }

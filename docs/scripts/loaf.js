@@ -23,7 +23,7 @@ class Loaf {
 
 
 
-        if (type == "xinput" && inputType == "buttons") {
+        if (type == "xinput" && inputType == "buttons") {       // It is a controller and a button is pressed
             switch (key) {
             // Facebuttons
             case 0: // A
@@ -89,8 +89,53 @@ class Loaf {
                 console.log(key)
 
             }
-        } else if (type == "xinput" && inputType == "stick") {
-            
+        } else if (type == "xinput" && inputType == "stick") {  // It is a controller and a stick is used
+            switch (index) {
+                case 0:
+                    oldX += key > 0 ? Math.ceil(key) : Math.floor(key);
+                break;
+                case 1:
+                    oldY += key > 0 ? Math.ceil(key) : Math.floor(key);
+                break;
+                case 2:
+                    oldX += key > 0 ? Math.ceil(key) : Math.floor(key);
+                break;
+                case 3:
+                    oldY += key > 0 ? Math.ceil(key) : Math.floor(key);
+                break;
+            }
+        } else if (type == "keyboard" && inputType == "key") {
+            switch(key) {
+                case "a":
+                    oldX -= 5
+                break;
+                case "A":
+                    oldX -= 10
+                break;
+                case "s":
+                    oldY += 5
+                break;
+                case "S":
+                    oldY += 10
+                break;
+                case "d":
+                    oldX += 5
+                break;
+                case "D":
+                    oldX += 10
+                break;
+                case "w":
+                    oldY -= 5
+                break;
+                case "W":
+                    oldY -= 10
+                break;
+                case "Home":
+                    oldX = this.defaultX
+                    oldY = this.defaultY
+                default:
+                    //console.log(key)
+            }
         }
 
         
