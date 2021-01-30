@@ -1,3 +1,6 @@
+import('./loaf.js');
+import('./game.js');
+
 window.onload = startup;
 
 hideDataThing = [
@@ -36,8 +39,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 });
 
-function startup() {
-
+function startup() {  
   if (localStorage.getItem("dark") == "true") {
     localStorage.setItem("dark", "true");
     document.documentElement.classList.toggle('theme--light');

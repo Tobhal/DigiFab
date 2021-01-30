@@ -92,6 +92,13 @@ body {
       margin: 0 0 40px 0;
     }
   }
+
+    background-image: url(./images/loafturtle.jpg);
+    background-repeat: no-repeat;
+    background-size: auto 65px;
+    background-position-x: 10px;
+    background-position-y: 70px;
+    
 }
 
 @include cToggle;

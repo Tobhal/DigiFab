@@ -46,6 +46,11 @@ body {
   color: var(--body-color);
   margin: 0 50px 0 0;
   transition: background-color 0s linear;
+  background-image: url(./images/loafturtle.jpg);
+  background-repeat: no-repeat;
+  background-size: auto 65px;
+  background-position-x: 10px;
+  background-position-y: 70px;
 }
 @media screen and (max-width: 1000px) {
   body {
