@@ -1,0 +1,28 @@
+// article.scss
+@include rootColors;
+
+@mixin article {
+    figure {
+        margin: 1rem;
+
+        background-color: var(--secondary);
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .left {
+        float: left;
+        width: 60%;
+    }
+
+    .right {
+        float:right;
+        width: 60%;
+    }
+
+    figcaption {
+        padding: 0.3rem 1rem 1rem 1rem;
+    }
+}

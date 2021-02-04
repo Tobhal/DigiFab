@@ -32,6 +32,40 @@
   --component-bg-hover: var(--system-base-8);
 }
 
+:root {
+  --system-base-9: rgba(18, 18, 18, 1);
+  --system-base-8: rgba(44, 44, 46, 1);
+  --system-base-7: rgba(58, 58, 60, 1);
+  --system-base-6: rgba(72, 72, 74, 1);
+  --system-base-5: rgba(99, 99, 102, 1);
+  --system-base-4: rgba(142, 142, 147, 1);
+  --system-base-3: rgba(174, 174, 178, 1);
+  --system-base-2: rgba(199, 199, 204, 1);
+  --system-base-1: rgba(209, 209, 214, 1);
+  --system-base-50: rgba(229, 229, 234, 1);
+  --system-base-0: rgba(242, 242, 247, 1);
+  --header-color: var(--system-base-9);
+  --body-bg: var(--system-base-50);
+  --body-color: var(--system-base-8);
+  --secondary: var(--system-base-2);
+  --secondary-hover: var(--system-base-3);
+  --link-color: var(--system-base-8);
+  --component-border: var(--system-base-2);
+  --component-bg-hover: var(--system-base-1);
+  --code-bg: var(--system-base-8);
+}
+
+:root.theme--light {
+  --header-color: var(--system-base-1);
+  --body-bg: var(--system-base-9);
+  --body-color: var(--system-base-1);
+  --secondary: var(--system-base-8);
+  --secondary-hover: var(--system-base-6);
+  --link-color: var(--system-base-50);
+  --component-border: var(--system-base-2);
+  --component-bg-hover: var(--system-base-8);
+}
+
 html {
   box-sizing: border-box;
   font-size: 62.5%;
@@ -85,6 +119,11 @@ body pre {
   padding: 0 1rem;
   max-width: 700px;
   white-space: pre-wrap;
+  line-height: 2rem;
+  clear: both;
+}
+body pre code {
+  font-family: "Fira Code", monospace;
 }
 body a {
   color: var(--link-color);
@@ -199,6 +238,24 @@ body main section {
 }
 body main div {
   margin: 0 0 40px 0;
+}
+body main article figure {
+  margin: 1rem;
+  background-color: var(--secondary);
+}
+body main article figure img {
+  width: 100%;
+}
+body main article .left {
+  float: left;
+  width: 60%;
+}
+body main article .right {
+  float: right;
+  width: 60%;
+}
+body main article figcaption {
+  padding: 0.3rem 1rem 1rem 1rem;
 }
 
 .c-toggle {
