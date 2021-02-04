@@ -36,7 +36,6 @@ window.addEventListener('DOMContentLoaded', () => {
     document.getElementById(element + "Collaps").style.display = "none";
   }
 
-
 });
 
 function startup() {  
@@ -78,6 +77,12 @@ function startup() {
     })
   }
 
+  for (el of hideDataThing) {
+    if (el.includes("task") || el == "exam") {
+      console.log("hello")
+      hideData(el)
+    }
+  }
 };
 
 function hideData(data) {
