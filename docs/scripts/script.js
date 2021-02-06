@@ -33,7 +33,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // Hide the [...] on load
   for (element of hideDataThing) {
-    if (document.querySelector('h2') != null && document.querySelector('h2').classList.contains(element)) {
+    if (document.getElementById(element) != null) {
       document.getElementById(element + "Collaps").style.display = "none";
     }
   }
@@ -80,8 +80,8 @@ function startup() {
   }
 
   for (el of hideDataThing) {
-    if ((el.includes("task") || el == "exam") && (document.querySelector('h2') != null && document.querySelector('h2').classList.contains(el))) {
-      hideData(el)
+    if ((el.includes("task") || el == "exam") && !(document.getElementById(element) != null)) {
+      hideData(el);
     }
   }
 };
