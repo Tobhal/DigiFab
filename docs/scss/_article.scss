@@ -4,6 +4,7 @@
 @mixin article {
     figure {
         margin: 1rem;
+        max-width: 50rem;
 
         background-color: var(--secondary);
 

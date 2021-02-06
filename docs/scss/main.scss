@@ -94,15 +94,16 @@ body {
     }
 
     article {
+      max-width: 1000px;
       @include article;
     }
   }
 
-    background-image: url(./images/loafturtle.jpg);
-    background-repeat: no-repeat;
-    background-size: auto 65px;
-    background-position-x: 10px;
-    background-position-y: 70px;
+  background-image: url(./images/loafturtle.jpg);
+  background-repeat: no-repeat;
+  background-size: auto 65px;
+  background-position-x: 10px;
+  background-position-y: 70px;
     
 }
 

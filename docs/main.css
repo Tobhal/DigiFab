@@ -96,7 +96,7 @@ body {
     top: 30vw;
   }
 }
-@media screen and (min-width: 1000px) and (max-width: 2000px) and (min-aspect-ratio: 16/10) {
+@media screen and (min-width: 1000px) and (max-width: 2000px) {
   body {
     grid-template-columns: 300px auto;
     grid-template-rows: 100px auto;
@@ -106,7 +106,7 @@ body {
     display: none;
   }
 }
-@media screen and (min-width: 2000px) and (min-aspect-ratio: 16/9) {
+@media screen and (min-width: 2000px) {
   body {
     grid-template-columns: auto 800px auto;
     grid-template-rows: 80px auto auto;
@@ -117,16 +117,19 @@ body {
   }
 }
 body pre {
-  background: var(--code-bg);
-  border-radius: 5px;
-  padding: 0 1rem;
-  max-width: 700px;
+  width: auto;
+  max-width: 1000px;
   white-space: pre-wrap;
   line-height: 2rem;
   clear: both;
 }
 body pre code {
   font-family: "Fira Code", monospace;
+}
+body .inline {
+  display: inline-block;
+  margin: 0;
+  padding: 0.4rem 1rem;
 }
 body a {
   color: var(--link-color);
@@ -197,7 +200,7 @@ body main {
     -ms-grid-column: 1;
   }
 }
-@media screen and (min-width: 1000px) and (max-width: 2000px) and (min-aspect-ratio: 16/10) {
+@media screen and (min-width: 1000px) and (max-width: 2000px) {
   body header {
     -ms-grid-row: 1;
     -ms-grid-column: 1;
@@ -212,7 +215,7 @@ body main {
     -ms-grid-column: 2;
   }
 }
-@media screen and (min-width: 2000px) and (min-aspect-ratio: 16/9) {
+@media screen and (min-width: 2000px) {
   body header {
     -ms-grid-row: 1;
     -ms-grid-column: 2;
@@ -242,8 +245,12 @@ body main section {
 body main div {
   margin: 0 0 40px 0;
 }
+body main article {
+  max-width: 1000px;
+}
 body main article figure {
   margin: 1rem;
+  max-width: 50rem;
   background-color: var(--secondary);
 }
 body main article figure img {
