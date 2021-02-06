@@ -45,142 +45,150 @@
       <h1> Design for fabrikasjon </h1>
 
       <p>
-        Denne oppgaven gikk ut på å designe noe i Fusion 360 og IncSkape.
+        Denne oppgaven går ut på å designe noe i Fusion 360 og IncScape. I Fusion 360 designet jeg en boks for å lage en TIX klokke, men starten på hvordan det elektriske skal være inni.
       </p>
 
 
-      <h2> Fusion 360 </h2>
-      
-      <figure>
-        <img src="Images/TIX_clock_fusion360.png">
-        <figcaption>
-          Bilde av ferdig Fusion 360 design, for TIX en TIX klokke holden med montering for en Raspberry Pi peco
-        </figcaption>
-      </figure>
-      
-      <p>
-        I Fusion 360 valgte jeg å designe en boks for å holde en TIX clokke. Siden jeg ikke vet alle målene på alle delene som vil bli brukt i denne boksen har jeg lagn mange variabler slik at når jeg vet mer om selve prosjeket trenger jeg ikke redesigne hele boksen, jeg trenger bare å endre på noen verdier.
-      </p>
+      <h2 id="T1_fusion"> Fusion 360 </h2>
+      <p id="T1_fusionCollaps">[...]</p>
+      <section class="T1_fusion">
+        <figure>
+          <img src="Images/TIX_clock_fusion360.png">
+          <figcaption>
+            Bilde av ferdig Fusion 360 design, for TIX en TIX klokke holden med montering for en Raspberry Pi peco
+          </figcaption>
+        </figure>
+        
+        <p>
+          I Fusion 360 valgte jeg å designe en boks for å holde en TIX clokke. Siden jeg ikke vet alle målene på alle delene som vil bli brukt i denne boksen har jeg lagn mange variabler slik at når jeg vet mer om selve prosjeket trenger jeg ikke redesigne hele boksen, jeg trenger bare å endre på noen verdier.
+        </p>
+  
+        <table>
+          <tr>
+            <th> Name </th>
+            <th> Expression </th>
+            <th> Comment </th>
+          </tr>
+          <tr>
+            <td> RPP_totLen </td>
+            <td> 51mm </td>
+            <td>  </td>
+          </tr>
+          <tr>
+            <td> RPP_totWidth </td>
+            <td> 21mm </td>
+            <td>  </td>
+          </tr>
+          <tr>
+            <td> RPP_screwHoalDepthW </td>
+            <td> 2mm </td>
+            <td>  </td>
+          </tr>
+          <tr>
+            <td> RPP_screwHoalDepthH </td>
+            <td> 4.8mm </td>
+            <td>  </td>
+          </tr>
+          <tr>
+            <td> RPP_totThick </td>
+            <td> 1mm </td>
+            <td>  </td>
+          </tr>
+          <tr>
+            <td> RPP_screwDiameterInner </td>
+            <td> 2.1 </td>
+            <td>  </td>
+          </tr>
+          <tr>
+            <td> RPP_screwDiameterOuter </td>
+            <td> 3.8mm </td>
+            <td>  </td>
+          </tr>
+          <tr>
+            <td> RPP_screwFromEdgeL </td>
+            <td> 4.8mm </td>
+            <td>  </td>
+          </tr>
+          <tr>
+            <td> RPP_screwFromEdgeW </td>
+            <td> 2mm </td>
+            <td>  </td>
+          </tr>
+          <tr>
+            <td>  </td>
+            <td>  </td>
+            <td>  </td>
+          </tr>
+          <tr>
+            <td> LED_width </td>
+            <td> 50mm </td>
+            <td>  </td>
+          </tr>
+          <tr>
+            <td> LED_height </td>
+            <td> 50mm </td>
+            <td>  </td>
+          </tr>
+          <tr>
+            <td> LED_spacingUnit </td>
+            <td> 10mm </td>
+            <td> 1 LED </td>
+          </tr>
+          <tr>
+            <td> LED_spacingSet </td>
+            <td> 40mm </td>
+            <td> multiple units </td>
+          </tr>
+          <tr>
+            <td> LED_margin </td>
+            <td> 30mm </td>
+            <td> Outside set </td>
+          </tr>
+          <tr>
+            <td>  </td>
+            <td>  </td>
+            <td>  </td>
+          </tr>
+          <tr>
+            <td> BOX_height </td>
+            <td> 70mm </td>
+            <td>  </td>
+          </tr>
+          <tr>
+            <td> BOX_wallThickness </td>
+            <td> 20mm </td>
+            <td>  </td>
+          </tr>
+          <tr>
+            <td> BOX_bottomThikness </td>
+            <td> 5mm </td>
+            <td>  </td>
+          </tr>
+          <tr>
+            <td> BOX_screwHoal </td>
+            <td> 20mm </td>
+            <td>  </td>
+          </tr>
+          <tr>
+            <td> BOX_length </td>
+            <td> LED_margin*2 + LED_width*9 + LED_spacingUnit*5 + LED_spacingSet*3 </td>
+            <td>  </td>
+          </tr>
+          <tr>
+            <td> BOX_width </td>
+            <td> LED_margin*2 + LED_width*3 + LED_spacingUnit*2 </td>
+            <td>  </td>
+          </tr>
+        </table>
 
-      <table>
-        <tr>
-          <th> Name </th>
-          <th> Expression </th>
-          <th> Comment </th>
-        </tr>
-        <tr>
-          <td> RPP_totLen </td>
-          <td> 51mm </td>
-          <td>  </td>
-        </tr>
-        <tr>
-          <td> RPP_totWidth </td>
-          <td> 21mm </td>
-          <td>  </td>
-        </tr>
-        <tr>
-          <td> RPP_screwHoalDepthW </td>
-          <td> 2mm </td>
-          <td>  </td>
-        </tr>
-        <tr>
-          <td> RPP_screwHoalDepthH </td>
-          <td> 4.8mm </td>
-          <td>  </td>
-        </tr>
-        <tr>
-          <td> RPP_totThick </td>
-          <td> 1mm </td>
-          <td>  </td>
-        </tr>
-        <tr>
-          <td> RPP_screwDiameterInner </td>
-          <td> 2.1 </td>
-          <td>  </td>
-        </tr>
-        <tr>
-          <td> RPP_screwDiameterOuter </td>
-          <td> 3.8mm </td>
-          <td>  </td>
-        </tr>
-        <tr>
-          <td> RPP_screwFromEdgeL </td>
-          <td> 4.8mm </td>
-          <td>  </td>
-        </tr>
-        <tr>
-          <td> RPP_screwFromEdgeW </td>
-          <td> 2mm </td>
-          <td>  </td>
-        </tr>
-        <tr>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-        </tr>
-        <tr>
-          <td> LED_width </td>
-          <td> 50mm </td>
-          <td>  </td>
-        </tr>
-        <tr>
-          <td> LED_height </td>
-          <td> 50mm </td>
-          <td>  </td>
-        </tr>
-        <tr>
-          <td> LED_spacingUnit </td>
-          <td> 10mm </td>
-          <td> 1 LED </td>
-        </tr>
-        <tr>
-          <td> LED_spacingSet </td>
-          <td> 40mm </td>
-          <td> multiple units </td>
-        </tr>
-        <tr>
-          <td> LED_margin </td>
-          <td> 30mm </td>
-          <td> Outside set </td>
-        </tr>
-        <tr>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-        </tr>
-        <tr>
-          <td> BOX_height </td>
-          <td> 70mm </td>
-          <td>  </td>
-        </tr>
-        <tr>
-          <td> BOX_wallThickness </td>
-          <td> 20mm </td>
-          <td>  </td>
-        </tr>
-        <tr>
-          <td> BOX_bottomThikness </td>
-          <td> 5mm </td>
-          <td>  </td>
-        </tr>
-        <tr>
-          <td> BOX_screwHoal </td>
-          <td> 20mm </td>
-          <td>  </td>
-        </tr>
-        <tr>
-          <td> BOX_length </td>
-          <td> LED_margin*2 + LED_width*9 + LED_spacingUnit*5 + LED_spacingSet*3 </td>
-          <td>  </td>
-        </tr>
-        <tr>
-          <td> BOX_width </td>
-          <td> LED_margin*2 + LED_width*3 + LED_spacingUnit*2 </td>
-          <td>  </td>
-        </tr>
-      </table>
 
-      <h2> IncScape </h2>
+      </section>
+
+      <h2 id="T1_incscape"> IncScape </h2>
+      <p id="T1_incscapeCollaps">[...]</p>
+      <section class="T1_incscape">
+
+      </section>
 
     </article>
   </main>

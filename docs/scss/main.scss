@@ -49,18 +49,7 @@ body {
     margin: 1rem;
   
   
-    a {
-      background: var(--secondary);
-      border-radius: 2px;
-  
-      color: var(--link-color);
-  
-      text-decoration: none;
-    }
-
-    a:hover {
-      background-color: var(--secondary-hover)
-    }
+    @include link;
   }
 
   main {
@@ -87,6 +76,10 @@ body {
     section {
       margin-bottom: 15px;
 
+      @include link;
+      a {
+        padding: 1rem;
+      }
     }
   
     div {

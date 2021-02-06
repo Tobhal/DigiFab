@@ -15,7 +15,10 @@ hideDataThing = [
   "task7",
   "task8",
   "task9",
-  "task10"
+  "task10",
+
+  "T1_fusion",
+  "T1_incscape"
 ];
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -90,6 +93,10 @@ function hideData(data) {
 
   let element = document.getElementsByClassName(data)[0];
   let elementCollaps = data + "Collaps";
+
+  if (element == undefined) {
+    return null;
+  }
 
   if (element.style.display != "none") {
     // Hide

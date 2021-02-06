@@ -2,6 +2,10 @@
 @include rootColors;
 
 @mixin article {
+    h1 {
+        font-size: 2.25em;
+    }
+
     figure {
         margin: 1rem;
         max-width: 70rem;
@@ -49,4 +53,19 @@
             background-color: var(--secondary-hover);
         }
     }
+}
+
+@mixin link {
+    a {
+        background: var(--secondary);
+        border-radius: 2px;
+    
+        color: var(--link-color);
+    
+        text-decoration: none;
+      }
+  
+      a:hover {
+        background-color: var(--secondary-hover)
+      }
 }
