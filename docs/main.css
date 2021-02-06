@@ -12,7 +12,7 @@
   --system-base-0: rgba(242, 242, 247, 1);
   --header-color: var(--system-base-9);
   --body-bg: var(--system-base-50);
-  --body-color: var(--system-base-8);
+  --body-color: var(--system-base-9);
   --secondary: var(--system-base-2);
   --secondary-hover: var(--system-base-3);
   --link-color: var(--system-base-8);
@@ -46,7 +46,7 @@
   --system-base-0: rgba(242, 242, 247, 1);
   --header-color: var(--system-base-9);
   --body-bg: var(--system-base-50);
-  --body-color: var(--system-base-8);
+  --body-color: var(--system-base-9);
   --secondary: var(--system-base-2);
   --secondary-hover: var(--system-base-3);
   --link-color: var(--system-base-8);
@@ -250,7 +250,7 @@ body main article {
 }
 body main article figure {
   margin: 1rem;
-  max-width: 50rem;
+  max-width: 70rem;
   background-color: var(--secondary);
 }
 body main article figure img {
@@ -259,13 +259,31 @@ body main article figure img {
 body main article .left {
   float: left;
   width: 60%;
+  max-width: 60rem;
 }
 body main article .right {
   float: right;
   width: 60%;
+  max-width: 60rem;
 }
 body main article figcaption {
   padding: 0.3rem 1rem 1rem 1rem;
+}
+body main article table {
+  border-collapse: collapse;
+}
+body main article table th {
+  padding: 0.3rem 1rem;
+}
+body main article table td {
+  border: 1px solid #ddd;
+  padding: 0.3rem 1rem;
+}
+body main article table tr:nth-child(even) {
+  background-color: var(--secondary);
+}
+body main article table tr:hover {
+  background-color: var(--secondary-hover);
 }
 
 .c-toggle {
