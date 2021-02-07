@@ -15,7 +15,6 @@
     --system-base-50: rgba(229, 229, 234, 1);
     --system-base-0: rgba(242, 242, 247, 1);
 
-
     --header-color: var(--system-base-9);
 
     --body-bg: var(--system-base-50);
@@ -29,7 +28,8 @@
     --component-border: var(--system-base-2);
     --component-bg-hover: var(--system-base-1);
 
-    --code-bg: var(--system-base-8);
+    --code-bg: #282c34;
+    --code-inline-color: #abb2bf;
   }
   
   :root.theme--light {

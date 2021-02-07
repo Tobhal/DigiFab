@@ -6,6 +6,10 @@
         font-size: 2.25em;
     }
 
+    a {
+        padding: 0;
+    }
+
     figure {
         margin: 1rem;
         max-width: 70rem;
@@ -56,7 +60,7 @@
 }
 
 @mixin link {
-    a {
+    .button {
         background: var(--secondary);
         border-radius: 2px;
     
@@ -65,7 +69,7 @@
         text-decoration: none;
       }
   
-      a:hover {
+      .button:hover {
         background-color: var(--secondary-hover)
       }
 }

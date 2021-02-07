@@ -4,11 +4,6 @@
 
   // Code
   pre {
-    //background: var(--code-bg);
-    //border-radius: 5px;
-
-    //padding: 0 1rem;
-
     width: auto;
     max-width: 1000px;
     white-space: pre-wrap;
@@ -16,16 +11,19 @@
     line-height: 2rem;
 
     clear: both;
-
-    code {
-      font-family: 'Fira Code', monospace;
-    }
-
   }
+
+  code {
+    font-family: 'Fira Code', monospace;
+  }
+
   .inline {
+    background: var(--code-bg);
+    color: var(--code-inline-color);
+
     display: inline-block;
-    margin: 0;
-    padding: 0.4rem 1rem;
+    margin: 1px 0;
+    padding: 0 0.5rem;
 
   }
 }

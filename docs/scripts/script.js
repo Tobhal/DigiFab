@@ -24,14 +24,16 @@ hideDataThing = [
 window.addEventListener('DOMContentLoaded', () => {
   const userPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-  if (localStorage.getItem("dark") == null) {
-    localStorage.setItem("dark", "false");
-  } else if (localStorage.getItem("dark") == "true") {
-    document.body.style.backgroundColor == "rgba(28, 28, 30, 1)";
-  };
+  console.log(userPrefersDark)
 
-  if (userPrefersDark) {
-    localStorage.setItem("dark", "true")
+  if (localStorage.getItem('dark') == null) {
+    if (userPrefersDark) {
+      localStorage.setItem('dark', 'true');
+    } else {
+      localStorage.setItem('dark', 'false');
+    }
+  } else if (localStorage.getItem('dark') == 'true') {
+    document.body.style.backgroundColor == "rgba(28, 28, 30, 1)";
   }
 
   // Hide the [...] on load
@@ -43,13 +45,16 @@ window.addEventListener('DOMContentLoaded', () => {
 
 });
 
-function startup() {  
+function startup() {
+  console.log(localStorage.getItem("dark"))
+  darkmode()
+
+  /*
   if (localStorage.getItem("dark") == "true") {
-    localStorage.setItem("dark", "true");
-    document.documentElement.classList.toggle('theme--light');
-    document.getElementById('theme').classList.toggle('c-toggle--active');
+    console.log("dark")
+    darkmode();
   }
-  
+  */
   document.body.classList.add('notransition');
   
   // Setts up the ability to hide a header
@@ -122,6 +127,8 @@ function hideCourseElement(element, index) {
 }
 
 function darkmode(darkmode) {   // Change the site to dark mode or not. you can define a true (dark mode) of false (white mode), if not the it will just change color.
+  console.log(localStorage.getItem("dark"))
+
   if (darkmode == null) {   // checks if there is a defined true/false. If not then flip the color.
     localStorage.getItem("dark") == "true" ? localStorage.setItem("dark", "false") : localStorage.setItem("dark", "true");
     document.documentElement.classList.toggle('theme--light');
