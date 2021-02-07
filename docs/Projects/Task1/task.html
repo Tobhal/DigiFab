@@ -22,7 +22,7 @@
     });
   </script>
 
-  <title>DigiFab- Task#</title>
+  <title>DigiFab- Task1</title>
 </head>
 <body>
   
@@ -170,6 +170,11 @@
             <td>  </td>
           </tr>
           <tr>
+            <td> BOX_screwDiameter </td>
+            <td> BOX_wallThickness / 2 </td>
+            <td>  </td>
+          </tr>
+          <tr>
             <td> BOX_length </td>
             <td> LED_margin*2 + LED_width*9 + LED_spacingUnit*5 + LED_spacingSet*3 </td>
             <td>  </td>
@@ -181,6 +186,79 @@
           </tr>
         </table>
 
+        <h3> Fremgangsmåte </h3>
+        <ol>
+          <li>
+            Skisse en firkant med lengde <code class="inline"> BOX_length </code> og bredde <code class="inline"> BOX_width </code>
+          </li>
+          <li>
+            Ekstruder så skissen med høyden <code class="inline"> BOX_height </code> 
+          </li>
+          <li>
+            Skisser på toppen av bosken. Her skal vi legge til firkantene som vi senere vil legge LED lys under. Målene vi skal bruke er <code class="inline"> LED_marign </code>, <code class="inline"> LED_width </code>, <code class="inline"> LED_height </code>, <code class="inline"> LED_spacingUnit </code> og <code class="inline"> LED_spacingSet </code>. Følg så bilde under å sett inn riktig variabel for målet. 
+          
+            <figure>
+              <img src="Images/TIX_clock_LED_drawing.png">
+              <figcaption>
+                Bilde av alle målene for å få alle rutene på en TIX klokke
+              </figcaption>
+            </figure>
+          </li>
+          <li>
+            Ekstruder så disse rutene i <code class="inline"> -BOX_height </code>.
+          </li>
+          <li>
+            Skisser nå undersiden av bosken slik at vi får kanter med <code class="inline"> BOX_wallThickness </code>, slik at vi kan ekstruere innover i klossen å få en boks med <code class="inline"> BOX_wallThickness </code> tykke kanter.
+          </li>
+          <li>
+            Skisser nå plass til skruehull. Lag en hjelpelinje som går <code class="inline"> BOX_wallThickness / 2 </code> på begge kantene. Lag så en sirkel alle stedene hjelpelinjene krysser. Jeg har satt diameteren på disse hullene til å være <code class="inline"> BOX_screwDiameter </code>, så sett diameteren på disse sirkelene til dette. Så kan sirkelene ekstrueres til <code class="inline"> -BOX_screwHoal </code>.
+          </li>
+          <li>
+            Sett så inn "thred" i hvert av hullene som nettop ble lagd. Jeg har ikke sett noe på hvilke type skruer som er bra å bruke osv. så jeg lar bare skruehullene være på "standard" verdiene. Som er:
+            <table>
+              <tr>
+                <td>Thread</td>
+                <td>ISO Metric profile</td>
+              </tr>
+              <tr>
+                <td>Size</td>
+                <td>10.0mm</td>
+              </tr>
+              <tr>
+                <td>Designation</td>
+                <td>M10x1.5</td>
+              </tr>
+              <tr>
+                <td>Class</td>
+                <td>6H</td>
+              </tr>
+              <tr>
+                <td>Direction</td>
+                <td>Right hand</td>
+              </tr>
+            </table>
+          </li>
+
+          <li>
+            Lag nå enda en kube, med <code class="inline"> BOX_length </code>, <code class="inline"> BOX_width </code> og <code class="inline"> BOX_bottomThikness </code>. Legg også opp for skruehull som passer boksen som ble lagd over.
+          </li>
+          <li>
+            Nå kan vi lage monteringen for Raspberry Pi enheten jeg har planer om å bruke for å styre all elektronikken i klokken. Denne skal for nå være montert i midten av klokken, så vi må lage noen skruepunkter for denne. Igjen har jeg ikke sett mye på skruer, så noen av målene må sikkert endres.
+
+            <figure>
+              <img src="Images/TIX_clock_buttom_mount.png">
+              <figcaption>
+                Montering for en Raspberry Pi Pico
+              </figcaption>
+            </figure>
+
+            Lag noen hjelpelinjer med lengde <code class="inline"> ( BOX_length / 2 ) - ( RPP_totLen / 2 ) + RPP_screwFromEdgeL </code> og høyde <code class="inline"> ( BOX_width / 2 ) - ( RPP_totWidth / 2 ) + RPP_screwFromEdgeW </code> fra hjørnene. Der disse hjelpelinjene møtes lag noen sirkler, disse skal være det Raspberry Pi Pico en skal monteres, og skal da ha en diameter på <code class="inline"> RPP_screwDiameterOuter </code>. Ekstruder Så sirkelen oppover, jeg valgte <code class="inline"> RPP_totThick * 4 </code>. Derretter kan en skisse lages på vær av stolpene med en sirkel, i midten, hvor diameteren er <code class="inline"> RPP_screwDiameterInner </code>.
+          </li>
+        </ol>
+
+        <p>
+          Dette prosjektet kan du finne under <a href="https://github.com/Tobhal/DigiFab/projects/Task1">/DigiFab/projects/Task1</a>. Der er også filen til prosjektet
+        </p>
 
       </section>
 
