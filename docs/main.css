@@ -15,6 +15,7 @@
   --body-color: var(--system-base-9);
   --secondary: var(--system-base-2);
   --secondary-hover: var(--system-base-3);
+  --tableBorder: var(--system-base-4);
   --link-color: var(--system-base-8);
   --component-border: var(--system-base-2);
   --component-bg-hover: var(--system-base-1);
@@ -28,6 +29,7 @@
   --body-color: var(--system-base-1);
   --secondary: var(--system-base-8);
   --secondary-hover: var(--system-base-6);
+  --tableBorder: var(--system-base-5);
   --link-color: var(--system-base-50);
   --component-border: var(--system-base-2);
   --component-bg-hover: var(--system-base-8);
@@ -50,6 +52,7 @@
   --body-color: var(--system-base-9);
   --secondary: var(--system-base-2);
   --secondary-hover: var(--system-base-3);
+  --tableBorder: var(--system-base-4);
   --link-color: var(--system-base-8);
   --component-border: var(--system-base-2);
   --component-bg-hover: var(--system-base-1);
@@ -63,6 +66,7 @@
   --body-color: var(--system-base-1);
   --secondary: var(--system-base-8);
   --secondary-hover: var(--system-base-6);
+  --tableBorder: var(--system-base-5);
   --link-color: var(--system-base-50);
   --component-border: var(--system-base-2);
   --component-bg-hover: var(--system-base-8);
@@ -120,8 +124,9 @@ body {
 }
 body pre {
   width: auto;
-  max-width: 1000px;
+  max-width: 975px;
   white-space: pre-wrap;
+  margin: 0 25px;
   line-height: 2rem;
   clear: both;
 }
@@ -139,7 +144,7 @@ body a {
   color: var(--link-color);
 }
 body p {
-  max-width: 700px;
+  max-width: 1000px;
 }
 body header {
   grid-area: header;
@@ -182,6 +187,12 @@ body nav .button {
   text-decoration: none;
 }
 body nav .button:hover {
+  background-color: var(--secondary-hover);
+}
+body nav a {
+  text-decoration: none;
+}
+body nav a:hover {
   background-color: var(--secondary-hover);
 }
 body main {
@@ -256,6 +267,12 @@ body main section .button:hover {
   background-color: var(--secondary-hover);
 }
 body main section a {
+  text-decoration: none;
+}
+body main section a:hover {
+  background-color: var(--secondary-hover);
+}
+body main section a {
   padding: 1rem;
 }
 body main div {
@@ -298,7 +315,8 @@ body main article table th {
   padding: 0.3rem 1rem;
 }
 body main article table td {
-  border: 1px solid #ddd;
+  border: 1px groove var(--tableBorder);
+  maring: 0 0.5rem;
   padding: 0.3rem 1rem;
 }
 body main article table tr:nth-child(even) {

@@ -45,7 +45,8 @@
         }
 
         td {
-            border: 1px solid #ddd;
+            border: 1px groove var(--tableBorder);
+            margin: 0 0.5rem;
             padding: 0.3rem 1rem;
         }
 
@@ -63,13 +64,19 @@
     .button {
         background: var(--secondary);
         border-radius: 2px;
-    
+
         color: var(--link-color);
-    
+
         text-decoration: none;
-      }
-  
-      .button:hover {
+    }
+    .button:hover {
         background-color: var(--secondary-hover)
-      }
+    }
+
+    a {
+        text-decoration: none;
+    }
+    a:hover {
+        background-color: var(--secondary-hover);
+    }
 }

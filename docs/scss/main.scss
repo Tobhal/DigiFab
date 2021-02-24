@@ -32,7 +32,7 @@ body {
   }
 
   p {
-    max-width: 700px;
+    max-width: 1000px;
   }
 
   header {
@@ -45,11 +45,11 @@ body {
   nav {
     @include navGrid;
     @include templateNav;
-  
-    margin: 1rem;
-  
-  
     @include link;
+
+    margin: 1rem;
+
+
   }
 
   main {
