@@ -1,6 +1,8 @@
 //import('./loaf.js');
 //import('./game.js');
 
+let showLoaf = false;
+
 window.onload = startup;
 
 hideDataThing = [
@@ -91,6 +93,10 @@ function startup() {
     if ((el.includes("task") || el == "exam") && !(document.getElementById(element) != null)) {
       hideData(el);
     }
+  }
+
+  if (showLoaf) {
+    document.styleSheets[0]["rules"][5]["style"]["background-size"] = "auto 65px";
   }
 };
 

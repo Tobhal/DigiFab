@@ -48,8 +48,6 @@ body {
     @include link;
 
     margin: 1rem;
-
-
   }
 
   main {
@@ -94,10 +92,14 @@ body {
 
   background-image: url(./images/loafturtle.jpg);
   background-repeat: no-repeat;
-  background-size: auto 65px;
-  background-position-x: 10px;
-  background-position-y: 70px;
-    
+  //background-size: auto 65px;
+  background-size: 0 0;
+  background-position-x: 15 0px;
+  background-position-y: 10px;
+  
+  .c-toggle {
+    position: fixed;
+  }
 }
 
 @include cToggle;

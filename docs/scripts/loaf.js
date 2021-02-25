@@ -4,11 +4,12 @@ class Loaf {
 
         this.defaultX = 10;
         this.defaultY = 70;
+        this.loafCSSPosition = 5;
 
-        this.x = parseInt(document.styleSheets[0]["rules"][3]["style"]["background-position-x"])
-        this.y = parseInt(document.styleSheets[0]["rules"][3]["style"]["background-position-y"])
+        this.x = parseInt(document.styleSheets[0]["rules"][this.loafCSSPosition]["style"]["background-position-x"])
+        this.y = parseInt(document.styleSheets[0]["rules"][this.loafCSS]["style"]["background-position-y"])
         
-        this.size = document.styleSheets[0]["rules"][3]["style"]["background-size"]
+        this.size = document.styleSheets[0]["rules"][this.loafCSSPosition]["style"]["background-size"]
         this.sizeX = this.size.split(" ")[0];
         this.sizeY = this.size.split(" ")[1];
 
@@ -18,8 +19,8 @@ class Loaf {
     move(key, typeControler, inputType, index) {
         let type = typeControler
         
-        let oldX = parseInt(document.styleSheets[0]["rules"][3]["style"]["background-position-x"]);
-        let oldY = parseInt(document.styleSheets[0]["rules"][3]["style"]["background-position-y"]);
+        let oldX = parseInt(document.styleSheets[0]["rules"][this.loafCSSPosition]["style"]["background-position-x"]);
+        let oldY = parseInt(document.styleSheets[0]["rules"][this.loafCSSPosition]["style"]["background-position-y"]);
 
 
 
@@ -140,8 +141,8 @@ class Loaf {
 
         
         
-        document.styleSheets[0]["rules"][3]["style"]["background-position-x"] = numToPX(oldX)
-        document.styleSheets[0]["rules"][3]["style"]["background-position-y"] = numToPX(oldY)
+        document.styleSheets[0]["rules"][this.loafCSSPosition]["style"]["background-position-x"] = numToPX(oldX)
+        document.styleSheets[0]["rules"][this.loafCSSPosition]["style"]["background-position-y"] = numToPX(oldY)
 
     }
 }
