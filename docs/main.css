@@ -206,6 +206,9 @@ body nav a {
 body nav a:hover {
   background-color: var(--secondary-hover);
 }
+body nav a {
+  padding: 0 1rem 0 0.25rem;
+}
 body main {
   grid-area: main;
   margin: 10px;

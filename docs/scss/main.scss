@@ -48,6 +48,10 @@ body {
     @include link;
 
     margin: 1rem;
+
+    a {
+      padding: 0 1rem 0 0.25rem;
+    }
   }
 
   main {
