@@ -1,7 +1,7 @@
 //import('./loaf.js');
 //import('./game.js');
 
-let showLoaf = false;
+showLoaf = false;
 
 window.onload = startup;
 
@@ -24,18 +24,22 @@ hideDataThing = [
 ];
 
 window.addEventListener('DOMContentLoaded', () => {
-  const userPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  let userPrefersDark
 
-  console.log(userPrefersDark)
+  if (localStorage.getItem("dark") == null) {
+    userPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-  if (localStorage.getItem('dark') == null) {
-    if (userPrefersDark) {
-      localStorage.setItem('dark', 'true');
+    if (!userPrefersDark) {
+      localStorage.setItem("dark", false);
     } else {
-      localStorage.setItem('dark', 'false');
+      localStorage.setItem("dark", true);
     }
-  } else if (localStorage.getItem('dark') == 'true') {
-    document.body.style.backgroundColor == "rgba(28, 28, 30, 1)";
+  } else {
+    if (localStorage.getItem("dark") == "true") {
+      userPrefersDark = true;
+    } else {
+      userPrefersDark = false;
+    }
   }
 
   // Hide the [...] on load
@@ -48,15 +52,12 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 function startup() {
-  console.log(localStorage.getItem("dark"))
-  darkmode()
-
-  /*
   if (localStorage.getItem("dark") == "true") {
-    console.log("dark")
-    darkmode();
+    darkmode(true)
+  } else {
+    darkmode(false)
   }
-  */
+  
   document.body.classList.add('notransition');
   
   // Setts up the ability to hide a header
@@ -129,25 +130,33 @@ function hideCourseElement(element, index) {
   let tempElement = element[index].childNodes[1]
 
   tempElement.style.display = tempElement.style.display === 'block' ? 'none' : 'block';
-  
 }
 
 function darkmode(darkmode) {   // Change the site to dark mode or not. you can define a true (dark mode) of false (white mode), if not the it will just change color.
-  console.log(localStorage.getItem("dark"))
+  prefersDark = (localStorage.getItem("dark") == "true");
 
-  if (darkmode == null) {   // checks if there is a defined true/false. If not then flip the color.
-    localStorage.getItem("dark") == "true" ? localStorage.setItem("dark", "false") : localStorage.setItem("dark", "true");
-    document.documentElement.classList.toggle('theme--light');
-    document.getElementById('theme').classList.toggle('c-toggle--active');
+  codeStyleElement = document.getElementById("codeStyle");
+  codeStyleHref = "file:///D:/Github/DigiFab/docs/scripts/highlight/styles/";
+  codeStyle = {
+    "dark": "atom-one-dark",
+    "light": "atom-one-light"
+  }
 
-  } else if (darkmode == true && localStorage.getItem("dark") == "false") {
-    localStorage.setItem("dark", "true");
-    document.documentElement.classList.toggle('theme--light');
-    document.getElementById('theme').classList.toggle('c-toggle--active');
+  // Change dark mode to the opisit of the stored color, so the color is changed
+  if (darkmode == null)
+    darkmode = !prefersDark;
 
-  } else if (darkmode == false && localStorage.getItem("dark") == "true") {
-    localStorage.setItem("dark", "false");
-    document.documentElement.classList.toggle('theme--light');
-    document.getElementById('theme').classList.toggle('c-toggle--active');
-  };
+  if (darkmode) {
+    // Dark
+    localStorage.setItem("dark", true)
+    codeStyleElement.href = codeStyleHref + codeStyle["dark"] + ".css";
+    document.getElementById('theme').classList.remove('c-toggle--active');
+    document.documentElement.classList.remove('theme--light');
+  } else {
+    // Light
+    localStorage.setItem("dark", false)
+    codeStyleElement.href = codeStyleHref + codeStyle["light"] + ".css";
+    document.getElementById('theme').classList.add('c-toggle--active');
+    document.documentElement.classList.add('theme--light');
+  }
 };

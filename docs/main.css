@@ -10,20 +10,10 @@
   --system-base-1: rgba(209, 209, 214, 1);
   --system-base-50: rgba(229, 229, 234, 1);
   --system-base-0: rgba(242, 242, 247, 1);
-  --header-color: var(--system-base-9);
-  --body-bg: var(--system-base-50);
-  --body-color: var(--system-base-9);
-  --secondary: var(--system-base-2);
-  --secondary-hover: var(--system-base-3);
-  --tableBorder: var(--system-base-4);
-  --link-color: var(--system-base-8);
-  --component-border: var(--system-base-2);
-  --component-bg-hover: var(--system-base-1);
-  --code-bg: #282c34;
-  --code-inline-color: #abb2bf;
-}
-
-:root.theme--light {
+  --system-base-code-dark: rgba(40, 44, 52, 1);
+  --system-base-code-dark-color: rgba(171, 178, 191, 1);
+  --system-base-code-light: rgba(255, 255, 255, 1);
+  --system-base-code-light-color: rgba(56, 58, 66, 1);
   --header-color: var(--system-base-1);
   --body-bg: var(--system-base-9);
   --body-color: var(--system-base-1);
@@ -33,6 +23,36 @@
   --link-color: var(--system-base-50);
   --component-border: var(--system-base-2);
   --component-bg-hover: var(--system-base-8);
+  --code-bg: var(--system-base-code-dark);
+  --code-inline-color: var(--system-base-code-dark-color);
+}
+
+:root.theme--light {
+  --header-color: var(--system-base-9);
+  --body-bg: var(--system-base-50);
+  --body-color: var(--system-base-9);
+  --secondary: var(--system-base-2);
+  --secondary-hover: var(--system-base-3);
+  --tableBorder: var(--system-base-4);
+  --link-color: var(--system-base-8);
+  --component-border: var(--system-base-2);
+  --component-bg-hover: var(--system-base-1);
+  --code-bg: var(--system-base-code-light);
+  --code-inline-color: var(--system-base-code-light-color);
+}
+
+:root.theme--dark {
+  --header-color: var(--system-base-1);
+  --body-bg: var(--system-base-9);
+  --body-color: var(--system-base-1);
+  --secondary: var(--system-base-8);
+  --secondary-hover: var(--system-base-6);
+  --tableBorder: var(--system-base-5);
+  --link-color: var(--system-base-50);
+  --component-border: var(--system-base-2);
+  --component-bg-hover: var(--system-base-8);
+  --code-bg: var(--system-base-code-dark);
+  --code-inline-color: var(--system-base-code-dark-color);
 }
 
 :root {
@@ -47,20 +67,10 @@
   --system-base-1: rgba(209, 209, 214, 1);
   --system-base-50: rgba(229, 229, 234, 1);
   --system-base-0: rgba(242, 242, 247, 1);
-  --header-color: var(--system-base-9);
-  --body-bg: var(--system-base-50);
-  --body-color: var(--system-base-9);
-  --secondary: var(--system-base-2);
-  --secondary-hover: var(--system-base-3);
-  --tableBorder: var(--system-base-4);
-  --link-color: var(--system-base-8);
-  --component-border: var(--system-base-2);
-  --component-bg-hover: var(--system-base-1);
-  --code-bg: #282c34;
-  --code-inline-color: #abb2bf;
-}
-
-:root.theme--light {
+  --system-base-code-dark: rgba(40, 44, 52, 1);
+  --system-base-code-dark-color: rgba(171, 178, 191, 1);
+  --system-base-code-light: rgba(255, 255, 255, 1);
+  --system-base-code-light-color: rgba(56, 58, 66, 1);
   --header-color: var(--system-base-1);
   --body-bg: var(--system-base-9);
   --body-color: var(--system-base-1);
@@ -70,6 +80,36 @@
   --link-color: var(--system-base-50);
   --component-border: var(--system-base-2);
   --component-bg-hover: var(--system-base-8);
+  --code-bg: var(--system-base-code-dark);
+  --code-inline-color: var(--system-base-code-dark-color);
+}
+
+:root.theme--light {
+  --header-color: var(--system-base-9);
+  --body-bg: var(--system-base-50);
+  --body-color: var(--system-base-9);
+  --secondary: var(--system-base-2);
+  --secondary-hover: var(--system-base-3);
+  --tableBorder: var(--system-base-4);
+  --link-color: var(--system-base-8);
+  --component-border: var(--system-base-2);
+  --component-bg-hover: var(--system-base-1);
+  --code-bg: var(--system-base-code-light);
+  --code-inline-color: var(--system-base-code-light-color);
+}
+
+:root.theme--dark {
+  --header-color: var(--system-base-1);
+  --body-bg: var(--system-base-9);
+  --body-color: var(--system-base-1);
+  --secondary: var(--system-base-8);
+  --secondary-hover: var(--system-base-6);
+  --tableBorder: var(--system-base-5);
+  --link-color: var(--system-base-50);
+  --component-border: var(--system-base-2);
+  --component-bg-hover: var(--system-base-8);
+  --code-bg: var(--system-base-code-dark);
+  --code-inline-color: var(--system-base-code-dark-color);
 }
 
 html {
@@ -329,7 +369,7 @@ body main article table th {
   padding: 0.3rem 1rem;
 }
 body main article table td {
-  border: 1px groove var(--tableBorder);
+  border: 1px groove var(--table-border);
   margin: 0 0.5rem;
   padding: 0.3rem 1rem;
 }
@@ -338,6 +378,9 @@ body main article table tr:nth-child(even) {
 }
 body main article table tr:hover {
   background-color: var(--secondary-hover);
+}
+body main article .clearBG {
+  background-color: var(--body-bg);
 }
 body .c-toggle {
   position: fixed;
