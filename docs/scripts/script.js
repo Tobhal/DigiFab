@@ -149,13 +149,15 @@ function darkmode(darkmode) {   // Change the site to dark mode or not. you can 
   if (darkmode) {
     // Dark
     localStorage.setItem("dark", true)
-    codeStyleElement.href = codeStyleHref + codeStyle["dark"] + ".css";
+    if (codeStyleElement != null)
+      codeStyleElement.href = codeStyleHref + codeStyle["dark"] + ".css";
     document.getElementById('theme').classList.remove('c-toggle--active');
     document.documentElement.classList.remove('theme--light');
   } else {
     // Light
     localStorage.setItem("dark", false)
-    codeStyleElement.href = codeStyleHref + codeStyle["light"] + ".css";
+    if (codeStyleElement != null)
+      codeStyleElement.href = codeStyleHref + codeStyle["light"] + ".css";
     document.getElementById('theme').classList.add('c-toggle--active');
     document.documentElement.classList.add('theme--light');
   }
