@@ -1,5 +1,6 @@
 //import('./loaf.js');
 //import('./game.js');
+//import('./loaf-new.js');
 
 showLoaf = false;
 
@@ -58,6 +59,8 @@ function startup() {
     darkmode(false)
   }
   
+  let loaf = new Loaf;
+
   document.body.classList.add('notransition');
   
   // Setts up the ability to hide a header
