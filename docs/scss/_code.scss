@@ -8,7 +8,7 @@
     max-width: 975px;
     white-space: pre-wrap;
 
-    margin: 0 25px;
+    margin: 0 3rem;
 
     line-height: 2rem;
 
@@ -26,7 +26,11 @@
     display: inline-block;
     margin: 1px 0;
     padding: 0 0.5rem;
+  }
 
+  p > code.hljs { 
+    display: inline; 
+    padding: 0.30rem;
   }
 }
   

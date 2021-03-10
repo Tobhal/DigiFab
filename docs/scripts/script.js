@@ -59,6 +59,12 @@ function startup() {
     darkmode(false)
   }
   
+  let codeElements = document.getElementsByTagName("code");
+  var i, j;
+  for (i = 0, j = codeElements.length; i < j; i++) {
+      hljs.highlightBlock(codeElements[i]);
+  }
+
   //let loaf = new Loaf;
 
   document.body.classList.add('notransition');
@@ -139,7 +145,7 @@ function darkmode(darkmode) {   // Change the site to dark mode or not. you can 
   prefersDark = (localStorage.getItem("dark") == "true");
 
   codeStyleElement = document.getElementById("codeStyle");
-  codeStyleHref = "file:///D:/Github/DigiFab/docs/scripts/highlight/styles/";
+  codeStyleHref = "../../scripts/highlight/styles/";
   codeStyle = {
     "dark": "atom-one-dark",
     "light": "atom-one-light"
