@@ -1,3 +1,5 @@
 docs/prepros.config
 docs/Images/Media-Queries (3).png
 .DS_Store
+
+.vscode/
