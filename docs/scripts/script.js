@@ -59,7 +59,7 @@ function startup() {
     darkmode(false)
   }
   
-  let loaf = new Loaf;
+  //let loaf = new Loaf;
 
   document.body.classList.add('notransition');
   
