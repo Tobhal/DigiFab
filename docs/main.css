@@ -184,13 +184,6 @@ body pre {
 body code {
   font-family: "Fira Code", monospace;
 }
-body .inline {
-  background: var(--code-bg);
-  color: var(--code-inline-color);
-  display: inline-block;
-  margin: 1px 0;
-  padding: 0 0.5rem;
-}
 body p > code.hljs {
   display: inline;
   padding: 0.3rem;
@@ -199,7 +192,7 @@ body a {
   color: var(--link-color);
 }
 body p {
-  max-width: 100rem;
+  max-width: 105rem;
 }
 body header {
   grid-area: header;

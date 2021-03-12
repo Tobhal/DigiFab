@@ -19,15 +19,6 @@
     font-family: 'Fira Code', monospace;
   }
 
-  .inline {
-    background: var(--code-bg);
-    color: var(--code-inline-color);
-
-    display: inline-block;
-    margin: 1px 0;
-    padding: 0 0.5rem;
-  }
-
   p > code.hljs { 
     display: inline; 
     padding: 0.30rem;

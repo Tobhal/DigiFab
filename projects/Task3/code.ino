@@ -1,5 +1,4 @@
 #include <Adafruit_NeoPixel.h>
-#include <tuple>
 
 #define LED_PIN 2
 #define LED_COUNT 12
@@ -7,7 +6,7 @@
 
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, NEO_GRB + NEO_KHZ800);
 
-const int BUTTONS[NUM_BUTTONS] = {13, 12, 8, 7, 4};
+const int BUTTONS[NUM_BUTTONS] = {13, 12, 11, 10, 9};
 int buttonStates[NUM_BUTTONS] = {0,0,0,0,0};
 int lastButtonStates[NUM_BUTTONS] = {0,0,0,0,0};
 
@@ -27,80 +26,42 @@ void loop() {
     }
 
     // Button 1
-    if (buttonStates[0] != lastButtonStates[0]) {
-        if (buttonStates[0] == HIGH) {
-            for (int i = 0; i < lightONCount; i++) {
-                lightON[i] = (lightON[i] - 1) % LED_COUNT;
-            }
-        } else {
-            Serial.println("0 off");
+    buttonFunc(0, [](){
+        for (int i = 0; i < lightONCount; i++) {
+            lightON[i] = (lightON[i] - 1) % LED_COUNT;
         }
-        delay(5);
-    }
-    lastButtonStates[0] = buttonStates[0];
+    });
 
     // Button 2
-    if (buttonStates[1] != lastButtonStates[1]) {
-        if (buttonStates[1] == HIGH) {
-            for (int i = 0; i < lightONCount; i++) {
-                lightON[i] = (lightON[i] + 1) % LED_COUNT;
-            }
-        } else {
-            Serial.println("1 off");
+    buttonFunc(1, [](){
+        for (int i = 0; i < lightONCount; i++) {
+            lightON[i] = (lightON[i] + 1) % LED_COUNT;
         }
-        delay(5);
-    }
-    lastButtonStates[1] = buttonStates[1];
+    });
 
     // Button 3
-    if (buttonStates[2] != lastButtonStates[2]) {
-        if (buttonStates[2] == HIGH) {
-            
-            lightON[lightONCount] = 0;
-            lightONCount++;
+    buttonFunc(2, [](){
+        lightON[lightONCount] = 0;
+        lightONCount++;
 
-            Serial.println(lightONCount);
-
-        } else {
-            Serial.println("2 off");
-        }
-        delay(5);
-    }
-    lastButtonStates[2] = buttonStates[2];
+        Serial.println(lightONCount);
+    });
 
     // Button 4
-    if (buttonStates[3] != lastButtonStates[2]) {
-        if (buttonStates[3] == HIGH) {
-            
-            lightON[lightONCount] = 0;
-            lightONCount--;
+    buttonFunc(3, [](){
+        lightON[lightONCount] = 0;
+        lightONCount--;
 
-            Serial.println(lightONCount);
-
-        } else {
-            Serial.println("3 off");
-        }
-        delay(5);
-    }
-    lastButtonStates[3] = buttonStates[3];
+        Serial.println(lightONCount);
+    });
 
     // Button 5
-    if (buttonStates[4] != lastButtonStates[4]) {
-        if (buttonStates[4] == HIGH) {
-            
-            for (int i = 0; i < LED_COUNT; i++) {
-                lightON[i] = 0;
-            }
-
-            lightONCount = 0;
-
-        } else {
-            Serial.println("4 off");
+    buttonFunc(4, [](){
+        for (int i = 0; i < LED_COUNT; i++) {
+            lightON[i] = 0;
         }
-        delay(5);
-    }
-    lastButtonStates[4] = buttonStates[4];
-
+        lightONCount = 0;
+    });
 
     strip.clear();
 
@@ -109,6 +70,20 @@ void loop() {
     }
 
     strip.show();
+}
+
+template <typename F>
+void buttonFunc(int index, F&& func) {
+    if (buttonStates[index] != lastButtonStates[index]) {
+        if (buttonStates[index] == HIGH) {
+            func();
+        } else {
+            Serial.print(index);
+            Serial.println(" off");
+        }
+        delay(5);
+    }
+    lastButtonStates[index] = buttonStates[index];
 }
 
 
