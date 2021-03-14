@@ -37,6 +37,10 @@
         padding: 0.3rem 1rem 1rem 1rem;
     }
 
+    video {
+        margin: 0 25%;
+    }
+
     table {
         border-collapse: collapse;
 
@@ -61,6 +65,21 @@
 
     .clearBG {
         background-color: var(--body-bg);
+    }
+
+    nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+
+
+        position: relative;
+        top:auto;
+
+        a {
+            padding: 0.5rem;
+            margin: 0.5rem;
+        }
     }
 }
 

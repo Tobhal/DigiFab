@@ -43,58 +43,79 @@
   <nav></nav>
 
   <main>
-    <article>   
+    <article>
       <h1> Elektronikk 101 og Arduino </h1>
+
+      <nav>
+        <a href="#T2_goal"> Målet med oppgaven </a>
+        <a href="#T2_connecting"> Oppkobling </a>
+        <a href="#T2_buttons"> Knap fungsjoner </a>
+        <a href="#T2_code"> Kode </a>
+        <a href="#T2_final"> Til slutt </a>
+      </nav>
+
       <p>I Denne oppgaven handlet om å lære å bruke Arduino og grunlegnede elektronikk. Vi fikk da utdelt et Arduino starter kit som hadde alle tingene vi trengte. Jeg valgte å bruke en <a href="https://www.adafruit.com/product/1138?length=1">Adafruit NeoPixel Digital RGB LED Strip</a> som jeg hadde liggende. Grunden til dette er at jeg har lyst til å bruke denne til slutt prosjektet mit.</p>
 
-      <h2> Målet med oppgaven </h2>
-      <p> Målet med prosjeket er å ha en LED spripe og noen knapper som kan "flytte" på et lys bortover LED stripen. "Styringen" av lystet skal gjøres ved hjelp an noen knapper på et koblings brett. Det er ting som ikke er helt logisk, eller kanskje burde være anderledes, hvis det hadde vært noe jeg skulle gitt til noen, med siden dette bare er for å finne ut av Arduino har jeg valgt å ha noen enkle løsninger, som løsninen med legg til og fjern lys</p>
-      
-      <h2> Oppkobling </h2>
-      <p> Jeg begynte først med å koble opp Arduino'en med alt jeg trengte av komponeneter. Jeg koblet opp 5 knapper, 2 for å bevege alle lystene frem og tilbake, 2 for å legge til/fjerne lys og 1 for å slette alle lystene. Alle knappene ble koblet opp med en 220 &#8486; mostand til GRD samtidig som den ble koblet til input 13-9 på Arduino'en. Det var også koblet til en LED stripe, denne var nesten direkte koblet til Arduinoen, med 5V, GRD og data (som er koblet til input 1). Under er et bilde av det ferdig oppkoblete brettet. </p>
-      <figure class="clearBG">
-        <img src="../../Images/ArduinoTask22.png">
-      </figure>
+      <h2 id="T2_goal"> Målet med oppgaven </h2>
+      <p id="T2_goalCollaps">[...]</p>
+      <section class="T2_goal">
+        <p> Målet med prosjeket er å ha en LED spripe og noen knapper som kan "flytte" på et lys bortover LED stripen. "Styringen" av lystet skal gjøres ved hjelp an noen knapper på et koblings brett. Det er ting som ikke er helt logisk, eller kanskje burde være anderledes, hvis det hadde vært noe jeg skulle gitt til noen, med siden dette bare er for å finne ut av Arduino har jeg valgt å ha noen enkle løsninger, som løsninen med legg til og fjern lys</p>
+      </section>
 
-      <h2> Fungsjonene til knappene </h2>
-      <table>
-        <tr>
-          <th> Knapp </th>
-          <th> Posisjon </th>
-          <th> Fungsjon </th>
-        </tr>
-        <tr>
-          <td> 1 </td>
-          <td> 13 </td>
-          <td> Flytt mot starten av LED stripen </td>
-        </tr>
-        <tr>
-          <td> 2 </td>
-          <td> 12 </td>
-          <td> Flytt mot slutten av LED stripen </td>
-        </tr>
-        <tr>
-          <td> 3 </td>
-          <td> 11 </td>
-          <td> 'Legg til' et lys på starten av LED stripen </td>
-        </tr>
-        <tr>
-          <td> 4 </td>
-          <td> 10 </td>
-          <td> Fjern det nyeste elemente fra LED stripen </td>
-        </tr>
-        <tr>
-          <td> 5 </td>
-          <td> 9 </td>
-          <td> Denne nullstiller alle lysene </td>
-        </tr>
-      </table>
-
-      <h2> Kode </h2>
-      <p> Dette er sefølgelig ikke nokk for å kunne "bevege" lyet på LED stripen. Det må noe kode til også for at alt skal fungere. Så jeg skrev litt kode for å få dette til å fungere. </p>
-      <p> Jeg begynner med å sette opp noen variabler slik at jeg kan enklere nå knappene og at LED stripen får den informasjonen den trenger for å fungere </p>
+      <h2 id="T2_connecting"> Oppkobling </h2>
+      <p id="T2_connectingCollaps">[...]</p>
+      <section class="T2_connecting">
+        <p> Jeg begynte først med å koble opp Arduino'en med alt jeg trengte av komponeneter. Jeg koblet opp 5 knapper, 2 for å bevege alle lystene frem og tilbake, 2 for å legge til/fjerne lys og 1 for å slette alle lystene. Alle knappene ble koblet opp med en 220 &#8486; mostand til GRD samtidig som den ble koblet til input 13-9 på Arduino'en. Det var også koblet til en LED stripe, denne var nesten direkte koblet til Arduinoen, med 5V, GRD og data (som er koblet til input 1). Under er et bilde av det ferdig oppkoblete brettet. </p>
+        <figure class="clearBG">
+          <img src="../../Images/ArduinoTask22.png">
+        </figure>
+      </section>
       
-      <pre><code class="c++">
+      <h2 id="T2_buttons"> Fungsjonene til knappene </h2>
+      <p id="T2_buttonsCollaps">[...]</p>
+      <section class="T2_buttons">
+        <table>
+          <tr>
+            <th> Knapp </th>
+            <th> Posisjon </th>
+            <th> Fungsjon </th>
+          </tr>
+          <tr>
+            <td> 1 </td>
+            <td> 13 </td>
+            <td> Flytt mot starten av LED stripen </td>
+          </tr>
+          <tr>
+            <td> 2 </td>
+            <td> 12 </td>
+            <td> Flytt mot slutten av LED stripen </td>
+          </tr>
+          <tr>
+            <td> 3 </td>
+            <td> 11 </td>
+            <td> 'Legg til' et lys på starten av LED stripen </td>
+          </tr>
+          <tr>
+            <td> 4 </td>
+            <td> 10 </td>
+            <td> Fjern det nyeste elemente fra LED stripen </td>
+          </tr>
+          <tr>
+            <td> 5 </td>
+            <td> 9 </td>
+            <td> Denne nullstiller alle lysene </td>
+          </tr>
+        </table>
+      </section>
+      
+
+      <h2 id="T2_code"> Kode </h2>
+      <p id="T2_codeCollaps">[...]</p>
+      <section class="T2_code">
+        <p> Dette er sefølgelig ikke nokk for å kunne "bevege" lyet på LED stripen. Det må noe kode til også for at alt skal fungere. Så jeg skrev litt kode for å få dette til å fungere. </p>
+        <p> Jeg begynner med å sette opp noen variabler slik at jeg kan enklere nå knappene og at LED stripen får den informasjonen den trenger for å fungere </p>
+        
+        <pre><code class="c++">
 #include &ltAdafruit_NeoPixel.h&gt
 
 #define LED_PIN 2
@@ -109,80 +130,32 @@ int lastButtonStates[NUM_BUTTONS] = {0,0,0,0,0};      // Last state of the butto
 
 int lightONCount = 1;     // How many lights should be on
 int lightON[LED_COUNT];   // The location of the lights
-      </code></pre>
-      <p> Her lager jeg noen lister for å gjøre hånteringen av knapper enklere. Jeg har også arrays med nå/forige verdi lagret, slik at koden fungerer som den skal senere. Jeg har også valgt å løse problemet med å huske posisjonen til lysene med å ikke bare ha en liste å notere verdien på lyste i den array posisjonen, dette hadde sikert vert en god løsning, men jeg hadde lyst til å prøve en annen måte å løse dette på.</p>
-      
-      <p> Etter Jeg har satt opp alle variablene må jeg kjøre gjennom setup å sette opp alle andre variabler jeg ikke trenger å hardkode selv, dette er ikke veldig mye, siden prosjeket ikke er så utrolig komplisert. </p>
-      
-      <pre><code class="c++">
+        </code></pre>
+        <p> Her lager jeg noen lister for å gjøre hånteringen av knapper enklere. Jeg har også arrays med nå/forige verdi lagret, slik at koden fungerer som den skal senere. Jeg har også valgt å løse problemet med å huske posisjonen til lysene med å ikke bare ha en liste å notere verdien på lyste i den array posisjonen, dette hadde sikert vert en god løsning, men jeg hadde lyst til å prøve en annen måte å løse dette på.</p>
+        
+        <p> Etter Jeg har satt opp alle variablene må jeg kjøre gjennom setup å sette opp alle andre variabler jeg ikke trenger å hardkode selv, dette er ikke veldig mye, siden prosjeket ikke er så utrolig komplisert. </p>
+        
+        <pre><code class="c++">
 void setup() {
   Serial.begin(9600);     // For printing to the serial port
   strip.begin();          // Initilizes the LED strip
   for (int b : BUTTONS)   // Setts all the buttons in the BUTTONS array to input
       pinMode(b, INPUT);
 }
-      </code></pre>
-      <p> Her gjør jeg ikke noe magi, jeg initialiserer LED stripen, slik at jeg kan bruke metodene til <code class="c++">Adafruit_NeoPixel</code> klassen for å styre LED stripen. </p>
-
-      <p> Videre begynte jeg med den faktiske koden som få LED stripen til å gjøre det jeg vil. </p>
-
-      <pre><code class="c++">
+        </code></pre>
+        <p> Her gjør jeg ikke noe magi, jeg initialiserer LED stripen, slik at jeg kan bruke metodene til <code class="c++">Adafruit_NeoPixel</code> klassen for å styre LED stripen. </p>
+  
+        <p> Videre begynte jeg med den faktiske koden som få LED stripen til å gjøre det jeg vil. </p>
+  
+        <pre><code class="c++">
 for (int i = 0; i < NUM_BUTTONS; i++) {       // Reads all buttons and stores theyr value
   buttonStates[i] = digitalRead(BUTTONS[i]);
 }
-      </code></pre>
-      <p> Jeg leser jeg bare alle verdiene til alle knappene og oppdaterer <code class="c++">buttonStates</code> med de verdiene. </p>
-
-      <!-- Ha med hvis Templates ikke fungerer 
-      <p> Før jeg fortsetter å forklare resten av koden, går jeg gjennom det som er likt med alle knappene.</p>
-      <pre><code class="c++">
-if (buttonStates[index] != lastButtonStates[index]) {
-  if (buttonStates[index] == HIGH) {
-      ...
-  } else {
-      Serial.println("index off");
-  }
-  delay(5);
-}
-lastButtonStates[index] = buttonStates[index];
-      </code></pre>
-      <p> For å velge en knapp bytter man ut <code class="c++">index</code> med indexen til knappen i <code class="c++">BUTTONS</code>. Så skriver man hva fungsjonen til knappen skal være ved å bytte ut <code class="c++">...</code> med fungsjonen. </p>
-      <p> I 'vanlig' c++ ville jeg ha dyttet dette ut i en egen fungsjon og hat en lambda som parameter</p>
-
-      <pre><code class="c++">
-// Button 1
-if (buttonStates[0] != lastButtonStates[0]) {
-    if (buttonStates[0] == HIGH) {
-        for (int i = 0; i < lightONCount; i++) {
-            lightON[i] = (lightON[i] - 1) % LED_COUNT;
-        }
-    } else {
-        Serial.println("0 off");
-    }
-    delay(5);
-}
-lastButtonStates[0] = buttonStates[0];
-
-// Button 2
-if (buttonStates[1] != lastButtonStates[1]) {
-    if (buttonStates[1] == HIGH) {
-        for (int i = 0; i < lightONCount; i++) {
-            lightON[i] = (lightON[i] + 1) % LED_COUNT;
-        }
-    } else {
-        Serial.println("1 off");
-    }
-    delay(5);
-}
-lastButtonStates[1] = buttonStates[1];
-      </code></pre>
-      <p> Denne koden er delt opp i 2, men begge gjør nesten det samme. Første delen av koden er for knapp 1 og ander er for knapp 2. Mye av denne koden er for registrer et knappetryk. Kort sagt ser denne koden om knappens verdi ikke er lik det den var sist, hvis den ikke er ser den om knappen sin verdi er <code class="c++">HIGH</code>, og hvis den er det skal den kjøre noe spesiell kode </p>
-
-      -->
-
-      <!-- Ha med hvis templates fungerer -->
-      <p> Før jeg begunte å kode fungsjonent til knappene lagde jeg en hjelpefungsjon for å minimere menge kode jeg måtte skrive. </p>
-      <pre><code class="c++">
+        </code></pre>
+        <p> Jeg leser jeg bare alle verdiene til alle knappene og oppdaterer <code class="c++">buttonStates</code> med de verdiene. </p>
+  
+        <p> Før jeg begunte å kode fungsjonent til knappene lagde jeg en hjelpefungsjon for å minimere menge kode jeg måtte skrive. </p>
+        <pre><code class="c++">
 template &lttypename F&gt // Define a template with type name F
   void buttonFunc(int index, F&& func) {
       // Checks if the button value has changed
@@ -198,10 +171,10 @@ template &lttypename F&gt // Define a template with type name F
       }
       lastButtonStates[index] = buttonStates[index];  // Updates the lastButtonState
   }
-      </code></pre>
-      <p> Denne koden gjør at jeg kan sende inn en lambda fungsjon som parameter så vil det bli kjørt i når fungsjonen kommer til <code class="c++">func();</code> delen. Dette gjør at jeg kan i teorien ha så mange knapper jeg vil, og de vil kjøre en egendefinert kode når den trykkes ned. Jeg må bare definere hvilken <code class="c++">index</code> knappen har og hvilken fungsjon (gitt i en lambda).</p>
-
-      <pre><code class="c++">
+        </code></pre>
+        <p> Denne koden gjør at jeg kan sende inn en lambda fungsjon som parameter så vil det bli kjørt i når fungsjonen kommer til <code class="c++">func();</code> delen. Dette gjør at jeg kan i teorien ha så mange knapper jeg vil, og de vil kjøre en egendefinert kode når den trykkes ned. Jeg må bare definere hvilken <code class="c++">index</code> knappen har og hvilken fungsjon (gitt i en lambda).</p>
+  
+        <pre><code class="c++">
 buttonFunc(0, [](){
   // Loops thrue all lights defined by lightONCount
   for (int i = 0; i < lightONCount; i++) {
@@ -243,15 +216,15 @@ buttonFunc(4, [](){
   }
   lightONCount = 0; // Sett the number of lights to be on to 0
 });
-      </code></pre>
-      <p> Dette er all koden jeg trenger for å gi de 5 knappene mine en fungsjon.
-      <br> Knapp 1 og 2 har mye av den sammen fungsjonen. De skal bare passe på at alle lysenes index blir ± 1.
-      <br> Knapp 3 trenger bare å legge til 1 på <code class="c++">lightONCount</code> slik at løkkene går over 1 index til.
-      <br> Knapp 4 trenger bare å fjerne 1 fra <code class="c++">lightONCount</code> og sette index'en til 0.
-      <br> Knapp 5 skal loope gjennom alle lysene som er på, så <code class="c++">lightONCount</code>, og setter de til index 0. </p>
-
-      <p> Nå som alle knappene har en fungsjon trenger jeg bare litt mer kode, for å vise endringene. </p>
-      <pre><code class="c++">
+        </code></pre>
+        <p> Dette er all koden jeg trenger for å gi de 5 knappene mine en fungsjon.
+        <br> Knapp 1 og 2 har mye av den sammen fungsjonen. De skal bare passe på at alle lysenes index blir ± 1.
+        <br> Knapp 3 trenger bare å legge til 1 på <code class="c++">lightONCount</code> slik at løkkene går over 1 index til.
+        <br> Knapp 4 trenger bare å fjerne 1 fra <code class="c++">lightONCount</code> og sette index'en til 0.
+        <br> Knapp 5 skal loope gjennom alle lysene som er på, så <code class="c++">lightONCount</code>, og setter de til index 0. </p>
+  
+        <p> Nå som alle knappene har en fungsjon trenger jeg bare litt mer kode, for å vise endringene. </p>
+        <pre><code class="c++">
 strip.clear();
 
 for (int i = 0; i < lightONCount; i++) {
@@ -259,8 +232,21 @@ for (int i = 0; i < lightONCount; i++) {
 }
 
 strip.show();
-      </code></pre>
-      <p> Alt som skjer her et at vi resetter alle lysene, så går vi gjennom alle lysene som skal være på, definert med <code class="c++">lightONCount</code> og setter de til riktig index og farge. Så til slutt så setter vi endringene til LED stripen. </p>
+        </code></pre>
+        <p> Alt som skjer her et at vi resetter alle lysene, så går vi gjennom alle lysene som skal være på, definert med <code class="c++">lightONCount</code> og setter de til riktig index og farge. Så til slutt så setter vi endringene til LED stripen. </p>
+      </section>
+
+      <h2 id="T2_final"> Til slutt </h2>
+      <p id="T2_finalCollaps">[...]</p>
+      <section class="T2_final">
+        <p> Dette er en video av slutt resultatet, det fungerer ganske bra.</p>
+        <video controls>
+          <source src="../../videoes/task2_working.mp4" type="video/mp4">
+        </video>
+      
+      
+      
+      </section>
 
 
 

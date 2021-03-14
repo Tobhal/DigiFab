@@ -12,7 +12,7 @@ int buttonStates[NUM_BUTTONS] = {0,0,0,0,0};            // Default state of the 
 int lastButtonStates[NUM_BUTTONS] = {0,0,0,0,0};        // Last state of the buttons
 
 int lightONCount = 1;       // How many lights should be on
-int lightON[LED_COUNT];     // The location of the lights
+unsigned int lightON[LED_COUNT];     // The location of the lights
 long buttonColor[LED_COUNT]; // The color of the light
 
 int potVal = 0;             // The value of the potentiometer (pot)
@@ -24,7 +24,8 @@ void setup() {
         pinMode(b, INPUT);
     pinMode(A0, INPUT);
     
-    buttonColor[0] = 16711680;  // Sets the first LED's color to read (Color(255,0,0))
+    //buttonColor[0] = 16711680;  // Sets the first LED's color to read (Color(255,0,0))
+    buttonColor[0] = strip.Color(100,0,0);
 }
 
 void loop() {
@@ -54,12 +55,11 @@ void loop() {
     // Button 3
     buttonFunc(2, [](){
         lightON[lightONCount] = 0;          // Make shure the index of the light is 0
-        potVal = analogRead(A0);
-        potVal = map(potVal, 0, 1023, 0, 16777215);
-        buttonColor[lightONCount] = potVal; // Setts the color of that button to the current pot value
+        //potVal = analogRead(A0);
+        //potVal = map(potVal, 0, 1023, 0, 16777215);
+        potVal = strip.Color(100,0,0);
+        buttonColor[lightONCount] = strip.Color(100,0,0); // Setts the color of that button to the current pot value
         lightONCount++;
-
-        Serial.println(lightONCount);
     });
 
     // Button 4
@@ -67,8 +67,6 @@ void loop() {
         lightON[lightONCount] = 0;      // Make shure the index of the light is 0
         buttonColor[lightONCount] = 0;  // Resett the button color
         lightONCount--;
-
-        Serial.println(lightONCount);
     });
 
     // Button 5
