@@ -194,7 +194,7 @@ template &lttypename F&gt // Define a template with type name F
               Serial.print(index);
               Serial.println(" off");
           }
-          delay(5);
+          delay(5);   // Wait a little bit to prevent button bounce
       }
       lastButtonStates[index] = buttonStates[index];  // Updates the lastButtonState
   }
