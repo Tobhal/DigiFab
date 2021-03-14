@@ -359,6 +359,9 @@ body main article .right {
 body main article figcaption {
   padding: 0.3rem 1rem 1rem 1rem;
 }
+body main article video {
+  margin: 0 25%;
+}
 body main article table {
   border-collapse: collapse;
 }
@@ -378,6 +381,17 @@ body main article table tr:hover {
 }
 body main article .clearBG {
   background-color: var(--body-bg);
+}
+body main article nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  position: relative;
+  top: auto;
+}
+body main article nav a {
+  padding: 0.5rem;
+  margin: 0.5rem;
 }
 body .c-toggle {
   position: fixed;

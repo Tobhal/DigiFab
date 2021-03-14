@@ -7,6 +7,7 @@ showLoaf = false;
 window.onload = startup;
 
 hideDataThing = [
+  // TODO: Make this thing better
   "about",
   "exam",
   "task1",
@@ -20,8 +21,21 @@ hideDataThing = [
   "task9",
   "task10",
 
+  // Template
+  "TT_c",
+
+  // Task 1
   "T1_fusion",
-  "T1_incscape"
+  "T1_incscape",
+
+  // Task 2
+  "T2_goal",
+  "T2_connecting",
+  "T2_buttons",
+  "T2_code",
+  "T2_final"
+
+  // Task 3
 ];
 
 window.addEventListener('DOMContentLoaded', () => {
