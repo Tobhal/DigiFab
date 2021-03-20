@@ -22,5 +22,5 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 function startup() {
-    
+    console.log("add content to head loaded")
 }

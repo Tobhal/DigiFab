@@ -7,6 +7,8 @@ showLoaf = false;
 window.onload = startup;
 
 function startup() {
+    console.log("script loaded")
+
     let codeElements = document.getElementsByTagName("code");
     var i, j;
     for (i = 0, j = codeElements.length; i < j; i++) {

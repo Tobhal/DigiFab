@@ -1,21 +1,10 @@
 window.onload = startup;
 
 hideData = {}
-keepHidden = [
-    "task1",
-    "task2",
-    "task3",
-    "task4",
-    "task5",
-    "task6",
-    "task7",
-    "task8",
-    "task9",
-    "task10",
-    "exam"
-]
 
 function startup() {
+    console.log("collaps element loaded")
+
     let h2Elements = document.getElementsByTagName("h2");
     let sections = document.getElementsByTagName("section");
     let articleNav = document.getElementsByTagName("nav")[1];
@@ -55,26 +44,14 @@ function startup() {
 function dataHide(elID) {
     let section = document.getElementsByTagName("section")[hideData[elID]];
     let hideDots = document.getElementById(elID + "_Collaps");
-
-    if (keepHidden.includes(elID)) {
-        if (section.style.display != "none") {
-            section.style.display = "";
-            hideDots.style.display = "none";
-        } else {
-            section.style.display = "none";
-            hideDots.style.display = "";
-        }
-    } else {
-        if (section.style.display != "none") {
-            section.style.display = "none";
-            hideDots.style.display = "";
-        } else {
-            section.style.display = "";
-            hideDots.style.display = "none";
-        }
-    }
-
     
+    if (section.style.display != "none") {
+        section.style.display = "none";
+        hideDots.style.display = "";
+    } else {
+        section.style.display = "";
+        hideDots.style.display = "none";
+    }
 }
 
 function createDots(elID) {

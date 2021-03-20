@@ -23,6 +23,8 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 function startup() {
+    console.log("dark mode loaded")
+
     if (localStorage.getItem("dark") == "true") {
         darkmode(true)
     } else {
