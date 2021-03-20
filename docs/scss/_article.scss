@@ -4,6 +4,7 @@
 @mixin article {
     h1 {
         font-size: 2.25em;
+        margin-bottom: 0;
     }
 
     a {
@@ -72,6 +73,8 @@
         flex-direction: row;
         justify-content: flex-start;
         flex-wrap: wrap;
+
+        margin-top: 0;
 
         position: relative;
         top:auto;

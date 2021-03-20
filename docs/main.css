@@ -334,6 +334,7 @@ body main article {
 }
 body main article h1 {
   font-size: 2.25em;
+  margin-bottom: 0;
 }
 body main article a {
   padding: 0;
@@ -387,6 +388,7 @@ body main article nav {
   flex-direction: row;
   justify-content: flex-start;
   flex-wrap: wrap;
+  margin-top: 0;
   position: relative;
   top: auto;
 }
