@@ -386,6 +386,7 @@ body main article nav {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  flex-wrap: wrap;
   position: relative;
   top: auto;
 }
