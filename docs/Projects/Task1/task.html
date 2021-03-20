@@ -9,20 +9,24 @@
   <!-- link -->
   <link rel="stylesheet" media="screen" type="text/css" href="../../main.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../scripts/highlight/styles/atom-one-dark.css"
+  <link id="codeStyle" rel="stylesheet" href="../../scripts/highlight/styles/atom-one-dark.css">
 
   <!-- script -->
-  <script src="../../scripts/script.js"></script>
-  <script src="../../scripts/jquery-1.10.2.js"></script>
+  <script src="../../scripts/addContentToHead.js"></script>
+
   <script src="../../scripts/highlight/highlight.pack.js"></script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <script src="../../scripts/jquery-1.10.2.js"></script>
   <script>
-    hljs.initHighlightingOnLoad();
     $(function(){
-        $("nav").load("../../nav.html"); 
+        $("nav").first().load("../../nav.html"); 
     });
   </script>
 
-  <title>DigiFab- Task1</title>
+  <title>DigiFab- Task#</title>
 </head>
 <body>
   
@@ -44,14 +48,14 @@
     <article>
       <h1> Design for fabrikasjon </h1>
 
+      <nav></nav>
+
       <p>
         Denne oppgaven går ut på å designe noe i Fusion 360 og IncScape. I Fusion 360 designet jeg en boks for å lage en TIX klokke, men starten på hvordan det elektriske skal være inni.
       </p>
 
-
       <h2 id="T1_fusion"> Fusion 360 </h2>
-      <p id="T1_fusionCollaps">[...]</p>
-      <section class="T1_fusion">
+      <section>
         <figure>
           <img src="Images/TIX_clock_fusion360.png">
           <figcaption>
@@ -263,8 +267,7 @@
       </section>
 
       <h2 id="T1_incscape"> IncScape </h2>
-      <p id="T1_incscapeCollaps">[...]</p>
-      <section class="T1_incscape">
+      <section>
         <p>
           Jeg var ikke helt sikker på hva jeg ville lage her, så jeg så på skrivebordet å så Steam logoen, så jeg tenkte å prøve å lage den.
         </p>

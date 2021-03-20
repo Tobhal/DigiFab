@@ -12,29 +12,25 @@
   <link id="codeStyle" rel="stylesheet" href="../../scripts/highlight/styles/atom-one-dark.css">
 
   <!-- script -->
-  <script src="../../scripts/script.js"></script>
-  <script src="../../scripts/jquery-1.10.2.js"></script>
+  <script src="../../scripts/addContentToHead.js"></script>
+
   <script src="../../scripts/highlight/highlight.pack.js"></script>
+
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <script src="../../scripts/jquery-1.10.2.js"></script>
   <script>
     $(function(){
-        $("nav").load("../../nav.html"); 
+        $("nav").first().load("../../nav.html"); 
     });
   </script>
-  <script src="../../scripts/loaf-new.js"></script>
-
 
   <title>DigiFab- Task#</title>
 </head>
 <body>
-  
-  <div class="c-toggle" id="theme">
-    <div class="c-toggle__body"><i class="c-toggle__icon" data-feather="moon"></i><i class="c-toggle__icon" data-feather="sun"></i></div>
-  </div>
-
-  <scrip src='../../scripts/father.min.js'></scrip>
-  <scrit src="../../scripts/script.js"></scrit>
+  <script src='../../scripts/father.min.js'></script>
+  <script src="../../scripts/darkMode.js"></script>
   <header>
     <a href="../../index.html">
       <h1>DigiFab</h1>
@@ -47,27 +43,26 @@
     <article>
       <h1> Template prosjekt </h1>
 
-      <nav>
-        <a href="#TT_c"> Temp nav </a>
-      </nav>
+      <nav></nav>
 
+      <h2 id="TT_img"> Image </h2>
+      <section>
 
-      <h2 id="TT_c"> Header </h2>
-      <p id="TT_cCollaps">[...]</p>
-      <section class="TT_c">
-        <p> Tekst her </p>
+        <figure class="right">
+          <img src="../../Images/loafturtle.jpg">
+          <figcaption>
+            caption to the image
+          </figcaption>
+        </figure>
+
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate ab laudantium reiciendis quam nesciunt aliquid possimus. A fuga et in quas, deserunt dignissimos tempora quasi laborum, exercitationem nostrum reiciendis sit, facere doloremque iure provident? Porro error delectus, at in optio voluptatibus repellat consectetur dignissimos, quas temporibus vero vel iure sunt fugit sint itaque? Saepe, architecto consequuntur explicabo quod aut ut rem veniam iusto doloribus voluptates aliquam ipsa earum eligendi eaque ullam maiores esse vel quam! Labore distinctio placeat aperiam itaque exercitationem ea ex ducimus consequatur accusantium laudantium, illum asperiores incidunt nemo sit tenetur, ratione optio sunt deserunt pariatur atque! Exercitationem!</p>
+
       </section>
 
-      <figure class="right">
-        <img src="../../Images/loafturtle.jpg">
-        <figcaption>
-          caption to the image
-        </figcaption>
-      </figure>
-
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate ab laudantium reiciendis quam nesciunt aliquid possimus. A fuga et in quas, deserunt dignissimos tempora quasi laborum, exercitationem nostrum reiciendis sit, facere doloremque iure provident? Porro error delectus, at in optio voluptatibus repellat consectetur dignissimos, quas temporibus vero vel iure sunt fugit sint itaque? Saepe, architecto consequuntur explicabo quod aut ut rem veniam iusto doloribus voluptates aliquam ipsa earum eligendi eaque ullam maiores esse vel quam! Labore distinctio placeat aperiam itaque exercitationem ea ex ducimus consequatur accusantium laudantium, illum asperiores incidunt nemo sit tenetur, ratione optio sunt deserunt pariatur atque! Exercitationem!</p>
-
-      <pre><code class="c++">
+      <h2 id="TT_code"> Code </h2>
+      <section>
+        
+        <pre><code class="c++">
 int main() {
   String s = "hello world";
   
@@ -75,55 +70,64 @@ int main() {
   
   return 0;
 }
-      </code></pre>
+        </code></pre>
   
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate ab laudantium reiciendis quam nesciunt aliquid possimus. A fuga et in quas, deserunt dignissimos tempora quasi laborum, exercitationem nostrum reiciendis sit, facere doloremque iure provident? Porro error delectus, at in optio voluptatibus repellat consectetur dignissimos, quas temporibus vero vel iure sunt fugit sint itaque? Saepe, architecto consequuntur explicabo quod aut ut rem veniam iusto doloribus voluptates aliquam ipsa earum eligendi eaque ullam maiores esse vel quam! <code class="c++">int i = 42</code> Labore distinctio placeat aperiam itaque exercitationem ea ex ducimus consequatur accusantium laudantium, illum asperiores incidunt nemo sit tenetur, ratione optio sunt deserunt pariatur atque! Exercitationem!
-      </p>
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate ab laudantium reiciendis quam nesciunt aliquid possimus. A fuga et in quas, deserunt dignissimos tempora quasi laborum, exercitationem nostrum reiciendis sit, facere doloremque iure provident? Porro error delectus, at in optio voluptatibus repellat consectetur dignissimos, quas temporibus vero vel iure sunt fugit sint itaque? Saepe, architecto consequuntur explicabo quod aut ut rem veniam iusto doloribus voluptates aliquam ipsa earum eligendi eaque ullam maiores esse vel quam! <code class="c++">int i = 42</code> Labore distinctio placeat aperiam itaque exercitationem ea ex ducimus consequatur accusantium laudantium, illum asperiores incidunt nemo sit tenetur, ratione optio sunt deserunt pariatur atque! Exercitationem!
+        </p>
 
-      <table>
-        <tr>
-          <th> Table Row Header </th>
-          <th> Table Row Header </th>
-          <th> Table Row Header </th>
-        </tr>
-        <tr>
-          <td> Table row Description </td>
-          <td> Table row Description </td>
-          <td> Table row Description </td>
-        </tr>
-        <tr>
-          <td> Table Row Description</td>
-          <td> Table Row Description</td>
-          <td> Table Row Description</td>
-        </tr>
-        <tr>
-          <td> Table row Description </td>
-          <td> Table row Description </td>
-          <td> Table row Description </td>
-        </tr>
-        <tr>
-          <td> Table Row Description</td>
-          <td> Table Row Description</td>
-          <td> Table Row Description</td>
-        </tr>
-        <tr>
-          <td> Table row Description </td>
-          <td> Table row Description </td>
-          <td> Table row Description </td>
-        </tr>
-        <tr>
-          <td> Table Row Description</td>
-          <td> Table Row Description</td>
-          <td> Table Row Description</td>
-        </tr>
-      </table>
+      </section>
+
+      <h2 id="TT_table"> Table </h2>
+      <section>
+        
+        <table>
+          <tr>
+            <th> Table Row Header </th>
+            <th> Table Row Header </th>
+            <th> Table Row Header </th>
+          </tr>
+          <tr>
+            <td> Table row Description </td>
+            <td> Table row Description </td>
+            <td> Table row Description </td>
+          </tr>
+          <tr>
+            <td> Table Row Description</td>
+            <td> Table Row Description</td>
+            <td> Table Row Description</td>
+          </tr>
+          <tr>
+            <td> Table row Description </td>
+            <td> Table row Description </td>
+            <td> Table row Description </td>
+          </tr>
+          <tr>
+            <td> Table Row Description</td>
+            <td> Table Row Description</td>
+            <td> Table Row Description</td>
+          </tr>
+          <tr>
+            <td> Table row Description </td>
+            <td> Table row Description </td>
+            <td> Table row Description </td>
+          </tr>
+          <tr>
+            <td> Table Row Description</td>
+            <td> Table Row Description</td>
+            <td> Table Row Description</td>
+          </tr>
+        </table>
+
+      </section>
       
-      <p>
-        When \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\) and they are
-        \[x = {-b \pm \sqrt{b^2-4ac} \over 2a}.\]
-      </p>
-
+      <h2 id="TT_math"> Math </h2>
+      <section>
+        <p>
+          When \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\) and they are
+          \[x = {-b \pm \sqrt{b^2-4ac} \over 2a}.\]
+        </p>
+      </section>
 
       <figure class="clearBG">
         <img src="../../Images/Funky Blad.png">

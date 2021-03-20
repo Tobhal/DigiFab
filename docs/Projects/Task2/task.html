@@ -9,23 +9,26 @@
   <!-- link -->
   <link rel="stylesheet" media="screen" type="text/css" href="../../main.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-  <link id="codeStyle" rel="stylesheet" href="../../scripts/highlight/styles/atom-one-dark.css"
+  <link id="codeStyle" rel="stylesheet" href="../../scripts/highlight/styles/atom-one-dark.css">
 
   <!-- script -->
-  <script src="../../scripts/script.js"></script>
-  <script src="../../scripts/jquery-1.10.2.js"></script>
+  <script src="../../scripts/addContentToHead.js"></script>
+
   <script src="../../scripts/highlight/highlight.pack.js"></script>
+
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <script src="../../scripts/jquery-1.10.2.js"></script>
   <script>
-    hljs.initHighlightingOnLoad();
     $(function(){
-        $("nav").load("../../nav.html"); 
+        $("nav").first().load("../../nav.html"); 
     });
   </script>
 
-  <title>DigiFab - Task 2</title>
+  <title>DigiFab- Task#</title>
 </head>
+
 <body>
   
   <div class="c-toggle" id="theme">
@@ -57,14 +60,12 @@
       <p>I Denne oppgaven handlet om å lære å bruke Arduino og grunlegnede elektronikk. Vi fikk da utdelt et Arduino starter kit som hadde alle tingene vi trengte. Jeg valgte å bruke en <a href="https://www.adafruit.com/product/1138?length=1">Adafruit NeoPixel Digital RGB LED Strip</a> som jeg hadde liggende. Grunden til dette er at jeg har lyst til å bruke denne til slutt prosjektet mit.</p>
 
       <h2 id="T2_goal"> Målet med oppgaven </h2>
-      <p id="T2_goalCollaps">[...]</p>
-      <section class="T2_goal">
+      <section>
         <p> Målet med prosjeket er å ha en LED spripe og noen knapper som kan "flytte" på et lys bortover LED stripen. "Styringen" av lystet skal gjøres ved hjelp an noen knapper på et koblings brett. Det er ting som ikke er helt logisk, eller kanskje burde være anderledes, hvis det hadde vært noe jeg skulle gitt til noen, med siden dette bare er for å finne ut av Arduino har jeg valgt å ha noen enkle løsninger, som løsninen med legg til og fjern lys</p>
       </section>
 
       <h2 id="T2_connecting"> Oppkobling </h2>
-      <p id="T2_connectingCollaps">[...]</p>
-      <section class="T2_connecting">
+      <section>
         <p> Jeg begynte først med å koble opp Arduino'en med alt jeg trengte av komponeneter. Jeg koblet opp 5 knapper, 2 for å bevege alle lystene frem og tilbake, 2 for å legge til/fjerne lys og 1 for å slette alle lystene. Alle knappene ble koblet opp med en 220 &#8486; mostand til GRD samtidig som den ble koblet til input 13-9 på Arduino'en. Det var også koblet til en LED stripe, denne var nesten direkte koblet til Arduinoen, med 5V, GRD og data (som er koblet til input 1). Under er et bilde av det ferdig oppkoblete brettet. </p>
         <figure class="clearBG">
           <img src="../../Images/ArduinoTask22.png">
@@ -72,8 +73,7 @@
       </section>
       
       <h2 id="T2_buttons"> Fungsjonene til knappene </h2>
-      <p id="T2_buttonsCollaps">[...]</p>
-      <section class="T2_buttons">
+      <section>
         <table>
           <tr>
             <th> Knapp </th>
@@ -110,8 +110,7 @@
       
 
       <h2 id="T2_code"> Kode </h2>
-      <p id="T2_codeCollaps">[...]</p>
-      <section class="T2_code">
+      <section>
         <p> Dette er sefølgelig ikke nokk for å kunne "bevege" lyet på LED stripen. Det må noe kode til også for at alt skal fungere. Så jeg skrev litt kode for å få dette til å fungere. </p>
         <p> Jeg begynner med å sette opp noen variabler slik at jeg kan enklere nå knappene og at LED stripen får den informasjonen den trenger for å fungere </p>
         
@@ -237,8 +236,7 @@ strip.show();
       </section>
 
       <h2 id="T2_final"> Til slutt </h2>
-      <p id="T2_finalCollaps">[...]</p>
-      <section class="T2_final">
+      <section>
         <p> Dette er en video av slutt resultatet, det fungerer ganske bra.</p>
         <video controls>
           <source src="../../videoes/task2_working.mp4" type="video/mp4">

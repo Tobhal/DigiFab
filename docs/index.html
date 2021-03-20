@@ -9,30 +9,30 @@
   <!-- link -->
   <link rel="stylesheet" media="screen" type="text/css" href="main.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet"> 
+  <link id="codeStyle" rel="stylesheet" href="scripts/highlight/styles/atom-one-dark.css">
 
   <!-- script -->
-  <script src="./scripts/script.js"></script>
+  <script src="scripts/script.js"></script>
+  <script src="scripts/collapsElement.js"></script>
+  <script src="scripts/darkMode.js"></script>
+  <script src="scripts/loaf-new.js"></script>
+
+  <script src="scripts/highlight/highlight.pack.js"></script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
   <script src="scripts/jquery-1.10.2.js"></script>
   <script>
     $(function(){
-        $("nav").load("nav.html"); 
+        $("nav").first().load("nav.html"); 
     });
   </script>
 
-  <title>DigiFab</title>
+  <title>DigiFab- Task#</title>
 </head>
 <body>
-
-  <div class="c-toggle" id="theme">
-    <div class="c-toggle__body"><i class="c-toggle__icon" data-feather="moon"></i><i class="c-toggle__icon" data-feather="sun"></i></div>
-  </div>
-
-  <script src="./scripts/father.min.js"></script><script src="./scripts/script.js"></script>
-
-
-
+  <script src="scripts/father.min.js"></script><script src="scripts/script.js"></script>
   <header>
     <a href="index.html">
       <h1>DigiFab</h1>
@@ -45,8 +45,7 @@
     <!--  ABOUT section  -->
     <div>
       <h2 id="about"> Om meg </h2>
-      <p id="aboutCollaps">[...]</p>
-      <section class="about">
+      <section>
         <p>Jeg heter Tobias Hallingstad og studerer dataingeniør (4. semester) ved Høyskolen i Østfold. Jeg valgte ingeniør siden de hadde y-veien, som gjorde at jeg kunne begynne rett på studiene etter 2 år med jobb.</p>
 
         <p>Jeg valgte å ta DigiFab faget siden jeg alltid har hat lyst til å fikle med små elektro ting på fritiden. Før jeg begynte har jeg startet på noen prosjekter som krever kunnskapene jeg kommer til å på DigiFab. Mitt hoved mål er å bygge noe som jeg i etterkant kan programmere til å gjøre noe, eksempel har jeg lyst til å lage et «smart» speil som jeg programmerer selve speilet selv.</p>
@@ -66,8 +65,7 @@
 -->
     <div>
       <h2 id="task1"> Design for fabrikasjon </h2>
-      <p id="task1Collaps">[...]</p>
-      <section class="task1">
+      <section>
         <p>
           Denne oppgaven går ut på å designe noe i Fusion 360 og IncScape. I Fusion 360 designet jeg en boks for å lage en TIX klokke, men starten på hvordan det elektriske skal være inni.
         </p>
@@ -77,8 +75,7 @@
 
     <div>
       <h2 id="task2"> Elektronikk 101 og Arduino </h2>
-      <p id="task2Collaps">[...]</p>
-      <section class="task2">
+      <section>
         <p>
           Denne oppgaven skal vi lære litt grunlegnede elektronikk samtidig som vi skal lære å bruke Arduino. Jeg koblet opp og skrev et lite program som flytter noen lys på en LED stripe.
         </p>
@@ -88,8 +85,7 @@
 
     <div>
       <h2 id="task3"> Raspberry Pi </h2>
-      <p id="task3Collaps">[...]</p>
-      <section class="task3">
+      <section>
         <p>
           Mer info kommer...
         </p>
@@ -99,8 +95,7 @@
 
     <div>
       <h2 id="task4"> 3D printing </h2>
-      <p id="task4Collaps">[...]</p>
-      <section class="task4">
+      <section>
         <p>
           Mer info kommer...
         </p>
@@ -110,8 +105,7 @@
 
     <div>
       <h2 id="task5"> ESP32 </h2>
-      <p id="task5Collaps">[...]</p>
-      <section class="task5">
+      <section>
         <p>
           Mer info kommer...
         </p>
@@ -121,8 +115,7 @@
 
     <div>
       <h2 id="task6"> Vinylkutting </h2>
-      <p id="task6Collaps">[...]</p>
-      <section class="task6">
+      <section>
         <p>
           Mer info kommer...
         </p>
@@ -132,8 +125,7 @@
 
     <div>
       <h2 id="task7"> Avansert elektronikk </h2>
-      <p id="task7Collaps">[...]</p>
-      <section class="task7">
+      <section>
         <p>
           Mer info kommer...
         </p>
@@ -143,8 +135,7 @@
 
     <div>
       <h2 id="task8"> Laserkutting </h2>
-      <p id="task8Collaps">[...]</p>
-      <section class="task8">
+      <section>
         <p>
           Mer info kommer...
         </p>
@@ -154,8 +145,7 @@
 
     <div>
       <h2 id="task9"> CNC Maskinering </h2>
-      <p id="task9Collaps">[...]</p>
-      <section class="task9">
+      <section>
         <p>
           Mer info kommer...
         </p>
@@ -165,8 +155,7 @@
 
     <div>
       <h2 id="task10"> Andre temaer </h2>
-      <p id="task10Collaps">[...]</p>
-      <section class="task10">
+      <section>
         <p>
           Mer info kommer...
         </p>
@@ -174,11 +163,9 @@
       </section>
     </div>
 
-
     <div>
       <h2 id="exam"> Eksamensprosjekt </h2>
-      <p id="examCollaps">[...]</p>
-      <section class="exam">
+      <section>
         <p>
           Mer info kommer ...
         </p>
