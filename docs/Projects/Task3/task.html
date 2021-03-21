@@ -235,7 +235,7 @@ while True:
       pixels[ledIndex[l]] = (100,0,0)
           </code>
         </pre>
-        <p>I hoved loop’en går jeg gjennom alle knappene i <code class="python">buttons</code>, for å så se om den knappen er trykket inn. Hvis knappen er trykket inn kjører jeg lambda funksjonen som er lagret til den knappen og jeg setter at den kappen er trykker inn, men ‘buttonPressed[i] = True’. Når jeg slipper knappen setter jeg <code class="python">buttonPressed[i] = False</code> for å kunne trykke inn knappen igjen senere.</p>
+        <p>I hoved loop’en går jeg gjennom alle knappene i <code class="python">buttons</code>, for å så se om den knappen er trykket inn. Hvis knappen er trykket inn kjører jeg lambda funksjonen som er lagret til den knappen og jeg setter at den kappen er trykker inn, men <code class="python">buttonPressed[i] = True </code>. Når jeg slipper knappen setter jeg <code class="python">buttonPressed[i] = False</code> for å kunne trykke inn knappen igjen senere.</p>
 
         <p>Etter jeg har gått gjennom alle knappene oppdaterer jeg alle LED lysene til de nye verdiene. Dette gjøres ved å først endre alle lysene til ingenting, så gå gjennom så mange lys som i <code class="python">ledsOn</code> og sette lystet på indeksen som er lagret, ved hjelp av <code class="python">ledIndex</code> listen, til en farge.</p>
       </section>
