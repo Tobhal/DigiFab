@@ -50,9 +50,203 @@
       <h1> Raspberry Pi </h1>
       <nav></nav>
 
-      <h2 id="header"> Header </h2>
+      <p>I dette prosjektet skal vi lære å bruke en Raspberry pi. For å gjøre dette valgte jeg å gjøre samme oppgaven som i Arduino prosjektet, som var å styre antall og posisjon på en LED stripe med noen knapper.</p>
+
+      <h2 id="setup"> Oppsett </h2>
       <section>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate ab laudantium reiciendis quam nesciunt aliquid possimus. A fuga et in quas, deserunt dignissimos tempora quasi laborum, exercitationem nostrum reiciendis sit, facere doloremque iure provident? Porro error delectus, at in optio voluptatibus repellat consectetur dignissimos, quas temporibus vero vel iure sunt fugit sint itaque? Saepe, architecto consequuntur explicabo quod aut ut rem veniam iusto doloribus voluptates aliquam ipsa earum eligendi eaque ullam maiores esse vel quam! Labore distinctio placeat aperiam itaque exercitationem ea ex ducimus consequatur accusantium laudantium, illum asperiores incidunt nemo sit tenetur, ratione optio sunt deserunt pariatur atque! Exercitationem!</p>
+        <p>Siden Raspberry pi’en kjører sitt eget os er det litt "vanskeligere" å utvikle til den. Jeg syns det er bedre å ha VS code med alle utvidelsene jeg har, en å måtte prøve å bruke Raspberry pi OS sin integrerte editor. Derfor valgte jeg å installere Raspberry Pi OS Lite. Dette OS’et gjør at jeg ikke får noe grensesnitt (annet en terminal). Poenget med dette er at jeg kommer til å bruke SSH for å koble meg til Raspberry Pi’en fra min egne PC, slik at jeg kan skrive kode i VS code så kjøre det via Putty.</p>
+        
+        <p>Å sette opp alt dette er ganske enkelt. Det eneste jeg gjorde var å installere "Raspberry Pi Imager", så sette inn et SD kort i PCen, velge at programmet skal installere "Raspberry Pi OS Lite", så gjør programmet resten. Når SD kortet er ferdig satt opp, kan jeg sette opp SSH, dette gjøres ved å legge inn en fil (i root på SD kortet) som heter «ssh». Denne filen har også en linje med kode som er <code class="bach">ECHO is on.</code>.</p>
+        
+        <p>Jeg kan nå hente ut IPen til Raspberry Pi’en, ved for eksempel å starte den opp på en skjer å skrive inn <code>ifconfig</code>, så notere IP’en. Når jeg har IP’en kan jeg skrive det inn i Putty og logge inn med satt brukernavn og passord, som jeg se følgelig har endret…</p>
+
+        <p>Jeg endret også at Pi’en skulle bruke et norsk tastatur. </p>
+
+        <p>Før jeg begynte med selve oppgaven passer jeg på at selve Raspberry Pi’en var oppdatert, og alle bibliotek jeg trenger (til Python) var installert. Dette måtte jeg gjøre på selve Pi’en siden nettverks oppsettet mitt ikke tillater det nå.</p>
+      </section>
+
+      <h2 id="connecting">Oppkobling</h2>
+      <section>
+        <p>Selve oppkoblingen er også ganske lik som i Arduino prosjektet. Jeg har 5 knapper som har forskjellige funksjoner, og 1 RGB LED stripe. Knappene er koblet til 5V med en 220 Ω motstand, mens LED stripen er koblet direkte til Pi’en. Under er et bilde av pinout’en til Pi’en og en tabell med hvor alt er koblet til.</p>
+        
+        <figure>
+          <img src="../../Images/raspberry-pi-pinout.png">
+          <figcaption>
+            Bilde av GPIO pinout til en Raspberry Pi
+          </figcaption>
+        </figure>
+
+        <br>
+
+        <table>
+          <tr>
+            <th> Hva </th>
+            <th> Pin på Raspberry Pi </th>
+            <th> Motstand </th>
+          </tr>
+          <tr>
+            <td> Knapp 1 </td>
+            <td> 23 </td>
+            <td> 220 Ω </td>
+          </tr>
+          <tr>
+            <td> Knapp 2 </td>
+            <td> 24 </td>
+            <td> 220 Ω </td>
+          </tr>
+          <tr>
+            <td> Knapp 3 </td>
+            <td> 17 </td>
+            <td> 220 Ω </td>
+          </tr>
+          <tr>
+            <td> Knapp 4 </td>
+            <td> 27 </td>
+            <td> 220 Ω </td>
+          </tr>
+          <tr>
+            <td> Knapp 5 </td>
+            <td> 22 </td>
+            <td> 220 Ω </td>
+          </tr>
+          <tr>
+            <td> LED </td>
+            <td> 10 </td>
+            <td> Ingen </td>
+          </tr>
+        </table>
+      </section>
+
+      <h2 id="code">Kode</h2>
+      <section>
+        <p>Selve kode delen er løst med lik tankegang som Arduinoen, men kodet på en annen måte.</p>
+
+        <p>Jeg begynte med å importere bibliotekene jeg trengte og sette opp noen variabler.</p>
+
+        <pre><code class="python">
+# GOIO pin support
+import RPi.GPIO as GPIO
+# LED stip support
+import board, neopixel
+# Other
+import time
+
+NUM_LED = 1
+buttons = {
+    23: lambda : moveLED('left'),
+    24: lambda : moveLED('right'),
+    17: lambda : removeLED(),
+    27: lambda : addLED(),
+    22: lambda : clearLED()
+}
+ledsOn = 1
+ledIndex = [0 for _ in range(NUM_LED)]
+
+# Setts all the buttosn to not beeing pressed, False
+buttonsPressed = [False for _ in buttons]
+
+# Setts up the LED strip
+pixels = neopixel.NeoPixel(board.D18, NUM_LED)
+GPIO.setwarnings(False)
+GPIO.setmode(GPIO.BCM)
+# Sett all buttons to input
+for i in buttons:
+    GPIO.setup(i, GPIO.IN)
+        </code></pre>
+        <p> <code class="python">buttons</code> er en «dict» hvor jeg lagret pin’en til knappen som nøkkel og funksjonen til knappen som verdi, som en lambda fungsjon.</p>
+
+        <p>Etter alle variablene er satt opp måtte jeg implementere funksjonene mine.</p>
+        <pre>
+          <code class="python">
+def moveLED(direction):
+  if direction == 'left':
+      for i in range(ledsOn):
+          ledIndex[i] = (ledIndex[i] - 1) % NUM_LED
+  elif direction == 'right':
+      for i in range(ledsOn):
+          ledIndex[i] = (ledIndex[i] + 1) % NUM_LED
+          </code>
+        </pre>
+        <p>Her går jeg gjennom alle aktive lys å flytter de til venste/høyre, basert på ‘direction’ parameteret, så tar jeg modulo av antall LED lys.</p>
+
+        <pre>
+          <code class="python">
+def addLED():
+  global ledsOn
+
+  for i in range(ledsOn):
+      if ledIndex[i] == 0:
+          return
+
+  ledsOn += 1        
+          </code>
+        </pre>
+        <p>Her ser jeg om noen lys er på posisjon 0 på LED stripen og hvis det er en legger jeg ikke til en nytt lys. Hvis det er ledig legger jeg til et nytt LED lys.</p>
+
+        <pre>
+          <code class="python">
+def removeLED():
+  global ledsOn
+
+  if ledsOn > 0:
+      ledsOn -= 1
+      ledIndex[ledsOn] = 0        
+          </code>
+        </pre>
+        <p>Her fjerner jeg 1 fra antall lys, hvis det er med en 1 lys som er på.</p>
+
+
+        <pre>
+          <code class="python">
+            def clearLED():
+            global pixels, ledsOn, ledIndex
+        
+            pixels.fill((0,0,0))
+            ledsOn = 0
+            ledIndex = [0 for _ in buttons]
+          </code>
+        </pre>
+        <p>Her setter jeg først alle lystene til ingenting, så endrer jeg antall LED lys som er på til 0. Når det er ferdig, setter jeg alle posisjonene til LED lystene til 0.</p>
+
+        <p>Nå som alle funksjonene er ferdig skrevet kan jeg begynne med hoved loop’en.</p>
+        <pre>
+          <code class="python">
+while True:
+  i = 0
+  # Loop thrue all buttons
+  for b in buttons:
+      # Test if the button is pressed
+      if not GPIO.input(b):
+          # If button is pressed and not previesly pressed
+          if not buttonsPressed[i]:
+              buttonsPressed[i] = True
+              buttons[b]()    # Run lambda function attached to that button
+      # The button is not pressed
+      else:
+          buttonsPressed[i] = False
+
+      i += 1
+
+  # Clear all pixel colors
+  pixels.fill((0,0,0))
+
+  # Loop trhue all indexes, of the loghts that is on, and set their color.
+  for l in range(ledsOn):
+      pixels[ledIndex[l]] = (100,0,0)
+          </code>
+        </pre>
+        <p>I hoved loop’en går jeg gjennom alle knappene i <code class="python">buttons</code>, for å så se om den knappen er trykket inn. Hvis knappen er trykket inn kjører jeg lambda funksjonen som er lagret til den knappen og jeg setter at den kappen er trykker inn, men ‘buttonPressed[i] = True’. Når jeg slipper knappen setter jeg <code class="python">buttonPressed[i] = False</code> for å kunne trykke inn knappen igjen senere.</p>
+
+        <p>Etter jeg har gått gjennom alle knappene oppdaterer jeg alle LED lysene til de nye verdiene. Dette gjøres ved å først endre alle lysene til ingenting, så gå gjennom så mange lys som i <code class="python">ledsOn</code> og sette lystet på indeksen som er lagret, ved hjelp av <code class="python">ledIndex</code> listen, til en farge.</p>
+      </section>
+
+      <h2 id="end">Til slutt</h2>
+      <section>
+        <p>Etter alt dette fungerer det nå å flytte, legge til og resette alle lystene på en \(n\) lang lysstripe, ved hjelp av 5 knapper. Under er resultatene av alt.</p>
+
+        <p>video kommer...</p>
+
+        <p>All kode finner i GitHub repoet, <a href="https://github.com/Tobhal/DigiFab/tree/main/projects/Task3">DigiFab/projects/Task3</a></p>
       </section>
 
 
