@@ -137,10 +137,10 @@ int lightON[LED_COUNT];   // The location of the lights
         
         <pre><code class="c++">
 void setup() {
-  Serial.begin(9600);     // For printing to the serial port
-  strip.begin();          // Initilizes the LED strip
-  for (int b : BUTTONS)   // Setts all the buttons in the BUTTONS array to input
-      pinMode(b, INPUT);
+    Serial.begin(9600);     // For printing to the serial port
+    strip.begin();          // Initilizes the LED strip
+    for (int b : BUTTONS)   // Setts all the buttons in the BUTTONS array to input
+        pinMode(b, INPUT);
 }
         </code></pre>
         <p> Her gjør jeg ikke noe magi, jeg initialiserer LED stripen, slik at jeg kan bruke metodene til <code class="c++">Adafruit_NeoPixel</code> klassen for å styre LED stripen. </p>
@@ -149,7 +149,7 @@ void setup() {
   
         <pre><code class="c++">
 for (int i = 0; i < NUM_BUTTONS; i++) {       // Reads all buttons and stores theyr value
-  buttonStates[i] = digitalRead(BUTTONS[i]);
+    buttonStates[i] = digitalRead(BUTTONS[i]);
 }
         </code></pre>
         <p> Jeg leser jeg bare alle verdiene til alle knappene og oppdaterer <code class="c++">buttonStates</code> med de verdiene. </p>
@@ -157,64 +157,64 @@ for (int i = 0; i < NUM_BUTTONS; i++) {       // Reads all buttons and stores th
         <p> Før jeg begunte å kode fungsjonent til knappene lagde jeg en hjelpefungsjon for å minimere menge kode jeg måtte skrive. </p>
         <pre><code class="c++">
 template &lttypename F&gt // Define a template with type name F
-  void buttonFunc(int index, F&& func) {
-      // Checks if the button value has changed
-      if (buttonStates[index] != lastButtonStates[index]) { 
-          // Checks if the buton state is HIGH  
-          if (buttonStates[index] == HIGH) { 
-              func();  // Runs the lambda function given in the parameter func
-          } else {
-              Serial.print(index);
-              Serial.println(" off");
-          }
-          delay(5);   // Wait a little bit to prevent button bounce
-      }
-      lastButtonStates[index] = buttonStates[index];  // Updates the lastButtonState
-  }
+void buttonFunc(int index, F&& func) {
+    // Checks if the button value has changed
+    if (buttonStates[index] != lastButtonStates[index]) { 
+        // Checks if the buton state is HIGH  
+        if (buttonStates[index] == HIGH) { 
+            func();  // Runs the lambda function given in the parameter func
+        } else {
+            Serial.print(index);
+            Serial.println(" off");
+        }
+        delay(5);   // Wait a little bit to prevent button bounce
+    }
+    lastButtonStates[index] = buttonStates[index];  // Updates the lastButtonState
+}
         </code></pre>
         <p> Denne koden gjør at jeg kan sende inn en lambda fungsjon som parameter så vil det bli kjørt i når fungsjonen kommer til <code class="c++">func();</code> delen. Dette gjør at jeg kan i teorien ha så mange knapper jeg vil, og de vil kjøre en egendefinert kode når den trykkes ned. Jeg må bare definere hvilken <code class="c++">index</code> knappen har og hvilken fungsjon (gitt i en lambda).</p>
   
         <pre><code class="c++">
 buttonFunc(0, [](){
-  // Loops thrue all lights defined by lightONCount
-  for (int i = 0; i < lightONCount; i++) {
-    // Get the light from lightON then add 1 and modulate with LED_COUNT
-    lightON[i] = (lightON[i] - 1) % LED_COUNT;
-  }
+    // Loops thrue all lights defined by lightONCount
+    for (int i = 0; i < lightONCount; i++) {
+        // Get the light from lightON then add 1 and modulate with LED_COUNT
+        lightON[i] = (lightON[i] - 1) % LED_COUNT;
+    }
 });
 
 // Button 2
 buttonFunc(1, [](){
-  // Loops thrue all lights defined by lightONCount
-  for (int i = 0; i < lightONCount; i++) {
-    // Get the light from lightON then add 1 and modulate with LED_COUNT
-    lightON[i] = (lightON[i] + 1) % LED_COUNT;
-  }
+    // Loops thrue all lights defined by lightONCount
+    for (int i = 0; i < lightONCount; i++) {
+        // Get the light from lightON then add 1 and modulate with LED_COUNT
+        lightON[i] = (lightON[i] + 1) % LED_COUNT;
+    }
 });
 
 // Button 3
 buttonFunc(2, [](){
-  lightON[lightONCount] = 0;  // Make shure the index of the light is 0
-  lightONCount++;  
+    lightON[lightONCount] = 0;  // Make shure the index of the light is 0
+    lightONCount++;  
 
-  Serial.println(lightONCount);
+    Serial.println(lightONCount);
 });
 
 // Button 4
 buttonFunc(3, [](){
-  lightON[lightONCount] = 0;  // Make shure the index of the light is 0
-  lightONCount--;
+    lightON[lightONCount] = 0;  // Make shure the index of the light is 0
+    lightONCount--;
 
-  Serial.println(lightONCount);
+    Serial.println(lightONCount);
 });
 
 // Button 5
 buttonFunc(4, [](){
-  // Loop true all lights and sett the index to 0
-  for (int i = 0; i < LED_COUNT; i++) {
-    lightON[i] = 0;
-  }
-  lightONCount = 0; // Sett the number of lights to be on to 0
+    // Loop true all lights and sett the index to 0
+    for (int i = 0; i < LED_COUNT; i++) {
+        lightON[i] = 0;
+    }
+    lightONCount = 0; // Sett the number of lights to be on to 0
 });
         </code></pre>
         <p> Dette er all koden jeg trenger for å gi de 5 knappene mine en fungsjon.
@@ -228,7 +228,7 @@ buttonFunc(4, [](){
 strip.clear();
 
 for (int i = 0; i < lightONCount; i++) {
-  strip.setPixelColor(lightON[i], strip.Color(255,0,0));
+    strip.setPixelColor(lightON[i], strip.Color(255,0,0));
 }
 
 strip.show();

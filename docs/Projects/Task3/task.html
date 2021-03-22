@@ -166,12 +166,12 @@ for i in buttons:
         <pre>
           <code class="python">
 def moveLED(direction):
-  if direction == 'left':
-      for i in range(ledsOn):
-          ledIndex[i] = (ledIndex[i] - 1) % NUM_LED
-  elif direction == 'right':
-      for i in range(ledsOn):
-          ledIndex[i] = (ledIndex[i] + 1) % NUM_LED
+    if direction == 'left':
+        for i in range(ledsOn):
+            ledIndex[i] = (ledIndex[i] - 1) % NUM_LED
+    elif direction == 'right':
+        for i in range(ledsOn):
+            ledIndex[i] = (ledIndex[i] + 1) % NUM_LED
           </code>
         </pre>
         <p>Her går jeg gjennom alle aktive lys å flytter de til venste/høyre, basert på ‘direction’ parameteret, så tar jeg modulo av antall LED lys.</p>
@@ -179,13 +179,13 @@ def moveLED(direction):
         <pre>
           <code class="python">
 def addLED():
-  global ledsOn
+    global ledsOn
 
-  for i in range(ledsOn):
-      if ledIndex[i] == 0:
-          return
+    for i in range(ledsOn):
+        if ledIndex[i] == 0:
+            return
 
-  ledsOn += 1        
+    ledsOn += 1        
           </code>
         </pre>
         <p>Her ser jeg om noen lys er på posisjon 0 på LED stripen og hvis det er en legger jeg ikke til en nytt lys. Hvis det er ledig legger jeg til et nytt LED lys.</p>
@@ -193,11 +193,11 @@ def addLED():
         <pre>
           <code class="python">
 def removeLED():
-  global ledsOn
+    global ledsOn
 
-  if ledsOn > 0:
-      ledsOn -= 1
-      ledIndex[ledsOn] = 0        
+    if ledsOn > 0:
+        ledsOn -= 1
+        ledIndex[ledsOn] = 0        
           </code>
         </pre>
         <p>Her fjerner jeg 1 fra antall lys, hvis det er med en 1 lys som er på.</p>
@@ -206,11 +206,11 @@ def removeLED():
         <pre>
           <code class="python">
 def clearLED():
-  global pixels, ledsOn, ledIndex
+    global pixels, ledsOn, ledIndex
 
-  pixels.fill((0,0,0))
-  ledsOn = 0
-  ledIndex = [0 for _ in buttons]
+    pixels.fill((0,0,0))
+    ledsOn = 0
+    ledIndex = [0 for _ in buttons]
           </code>
         </pre>
         <p>Her setter jeg først alle lystene til ingenting, så endrer jeg antall LED lys som er på til 0. Når det er ferdig, setter jeg alle posisjonene til LED lystene til 0.</p>
@@ -219,27 +219,27 @@ def clearLED():
         <pre>
           <code class="python">
 while True:
-  i = 0
-  # Loop thrue all buttons
-  for b in buttons:
-      # Test if the button is pressed
-      if not GPIO.input(b):
-          # If button is pressed and not previesly pressed
-          if not buttonsPressed[i]:
-              buttonsPressed[i] = True
-              buttons[b]()    # Run lambda function attached to that button
-      # The button is not pressed
-      else:
-          buttonsPressed[i] = False
+    i = 0
+    # Loop thrue all buttons
+    for b in buttons:
+        # Test if the button is pressed
+        if not GPIO.input(b):
+            # If button is pressed and not previesly pressed
+            if not buttonsPressed[i]:
+                buttonsPressed[i] = True
+                buttons[b]()    # Run lambda function attached to that button
+        # The button is not pressed
+        else:
+            buttonsPressed[i] = False
 
-      i += 1
+        i += 1
 
-  # Clear all pixel colors
-  pixels.fill((0,0,0))
+    # Clear all pixel colors
+    pixels.fill((0,0,0))
 
-  # Loop trhue all indexes, of the loghts that is on, and set their color.
-  for l in range(ledsOn):
-      pixels[ledIndex[l]] = (100,0,0)
+    # Loop trhue all indexes, of the loghts that is on, and set their color.
+    for l in range(ledsOn):
+        pixels[ledIndex[l]] = (100,0,0)
           </code>
         </pre>
         <p>I hoved loop’en går jeg gjennom alle knappene i <code class="python">buttons</code>, for å så se om den knappen er trykket inn. Hvis knappen er trykket inn kjører jeg lambda funksjonen som er lagret til den knappen og jeg setter at den kappen er trykker inn, men <code class="python">buttonPressed[i] = True </code>. Når jeg slipper knappen setter jeg <code class="python">buttonPressed[i] = False</code> for å kunne trykke inn knappen igjen senere.</p>
