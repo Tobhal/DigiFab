@@ -205,12 +205,12 @@ def removeLED():
 
         <pre>
           <code class="python">
-            def clearLED():
-            global pixels, ledsOn, ledIndex
-        
-            pixels.fill((0,0,0))
-            ledsOn = 0
-            ledIndex = [0 for _ in buttons]
+def clearLED():
+  global pixels, ledsOn, ledIndex
+
+  pixels.fill((0,0,0))
+  ledsOn = 0
+  ledIndex = [0 for _ in buttons]
           </code>
         </pre>
         <p>Her setter jeg først alle lystene til ingenting, så endrer jeg antall LED lys som er på til 0. Når det er ferdig, setter jeg alle posisjonene til LED lystene til 0.</p>
