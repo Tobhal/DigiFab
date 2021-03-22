@@ -67,7 +67,7 @@
 
       <h2 id="connecting">Oppkobling</h2>
       <section>
-        <p>Selve oppkoblingen er også ganske lik som i Arduino prosjektet. Jeg har 5 knapper som har forskjellige funksjoner, og 1 RGB LED stripe. Knappene er koblet til 5V med en 220 Ω motstand, mens LED stripen er koblet direkte til Pi’en. Under er et bilde av pinout’en til Pi’en og en tabell med hvor alt er koblet til.</p>
+        <p>Selve oppkoblingen er også ganske lik som i Arduino prosjektet. Jeg har 5 knapper som har forskjellige funksjoner, og 1 RGB LED stripe. Knappene er koblet til \(5V\) med en \(220Ω\) motstand, mens LED stripen er koblet direkte til Pi’en. Under er et bilde av pinout’en til Pi’en og en tabell med hvor alt er koblet til.</p>
         
         <figure>
           <img src="../../Images/raspberry-pi-pinout.png">
@@ -94,27 +94,27 @@
           <tr>
             <td> Knapp 1 </td>
             <td> 23 </td>
-            <td> 220 Ω </td>
+            <td> \(220Ω\) </td>
           </tr>
           <tr>
             <td> Knapp 2 </td>
             <td> 24 </td>
-            <td> 220 Ω </td>
+            <td> \(220Ω\) </td>
           </tr>
           <tr>
             <td> Knapp 3 </td>
             <td> 17 </td>
-            <td> 220 Ω </td>
+            <td> \(220Ω\) </td>
           </tr>
           <tr>
             <td> Knapp 4 </td>
             <td> 27 </td>
-            <td> 220 Ω </td>
+            <td> \(220Ω\) </td>
           </tr>
           <tr>
             <td> Knapp 5 </td>
             <td> 22 </td>
-            <td> 220 Ω </td>
+            <td> \(220Ω\) </td>
           </tr>
           <tr>
             <td> LED </td>
@@ -160,7 +160,7 @@ GPIO.setmode(GPIO.BCM)
 for i in buttons:
     GPIO.setup(i, GPIO.IN)
         </code></pre>
-        <p> <code class="python">buttons</code> er en «dict» hvor jeg lagret pin’en til knappen som nøkkel og funksjonen til knappen som verdi, som en lambda fungsjon.</p>
+        <p> <code class="python">buttons</code> er en <code class="python">dict</code> hvor jeg lagret pin’en til knappen som nøkkel og funksjonen til knappen som verdi, som en lambda fungsjon.</p>
 
         <p>Etter alle variablene er satt opp måtte jeg implementere funksjonene mine.</p>
         <pre>
@@ -174,7 +174,7 @@ def moveLED(direction):
             ledIndex[i] = (ledIndex[i] + 1) % NUM_LED
           </code>
         </pre>
-        <p>Her går jeg gjennom alle aktive lys å flytter de til venste/høyre, basert på ‘direction’ parameteret, så tar jeg modulo av antall LED lys.</p>
+        <p>Her går jeg gjennom alle aktive lys å flytter de til venste/høyre, basert på <code class="python">direction</code> parameteret, så tar jeg modulo av antall LED lys.</p>
 
         <pre>
           <code class="python">
