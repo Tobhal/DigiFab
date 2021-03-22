@@ -84,6 +84,10 @@
             margin: 0.5rem;
         }
     }
+
+    iframe {
+        border: none;
+    }
 }
 
 @mixin link {
