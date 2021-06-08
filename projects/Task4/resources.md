@@ -1,16 +1,13 @@
 # ESP 32 task
-Make the tix clock, but use the ESP 32. I want to use the bluethoot module, to connect to a iphone app. In the app I will be able to calebrate the clock and change colors. If i feel like i have the time i might also make a web api thing...
+Make the same light layout as in task 2, but connet a iPhone app (using bluetooth) to komunicate (togetter with the "normal" buttons).
 
 ## ESP 32
-Have some lights araged in a tix clock pattern.
+Manage the light strip and the bluetooth comunication with the iPhone app. 
 
-Hours | Minutes | Seconds
-:----:|:-------:|:------:
-\# ###|  ## ### | ## ###
-\# ###|  ## ### | ## ###
-\# ###|  ## ### | ## ###
-
-There can also be some buttons to change the clock so you dont need to connect to the app.
+### Respurses
+- [MultiCore Usage](https://randomnerdtutorials.com/esp32-dual-core-arduino-ide/)
+- [MultiCore2 Usage](https://circuitdigest.com/microcontroller-projects/esp32-dual-core-programming-using-arduino-ide)
+- 
 
 ## iphone app
 Comunicate to the ESP 32 using bluetooth.
