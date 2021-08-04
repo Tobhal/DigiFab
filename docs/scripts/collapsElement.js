@@ -11,6 +11,11 @@ function startup() {
 
     let i = 0;
     for (el of h2Elements) {
+        // Might thange this to just do main/article, but this wil probaly work for now
+        if (el.offsetParent.localName == "nav") {
+            continue;
+        }
+
         if (el["id"] == "" || el["id"].includes("noCollaps")) {
             i++;
             continue;
